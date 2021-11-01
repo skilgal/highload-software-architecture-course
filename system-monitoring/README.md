@@ -52,8 +52,6 @@ docker exec telegraf telegraf
 
 Working phase on Grafana
 
-[[./screens/scr1.png][Run docker containers]]
-[[./screens/scr2.png][System common metrics]]
-[[./screens/scr3.png][System metrics]]
-
+![Run docker containers](./screens/scr1.png)
+![System common metrics](./screens/scr2.png)
 ![System metrics](./screens/scr3.png)
