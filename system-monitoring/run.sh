@@ -1,8 +1,9 @@
 #!/bin/bash
 
-sudo mkdir -p /srv/docker/grafana/data
+mkdir -p ./data/grafana
+sudo chown "$USER" /var/run/docker.sock
+
 docker-compose up -d
-sudo chown -R 472:472 /srv/docker/grafana/data
 
 echo "Grafana: http://127.0.0.1:3000 - admin/admin"
 
@@ -12,4 +13,4 @@ curl -G http://localhost:8086/query?pretty=true --data-urlencode "db=glances" --
 
 echo
 echo "Create a new database ?"
-echo "curl -XPOST 'http://localhost:8086/query' --data-urlencode 'q=CREATE DATABASE mydb'"
+echo "curl -XPOST 'http://localhost:8086/query' --data-urlencode 'q=CREATE DATABASE telegraf'"
