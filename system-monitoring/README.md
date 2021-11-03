@@ -44,14 +44,26 @@ docker pull influxdb
 docker pull telegraf
 ```
 
-If you want to run Telegraf, edit the telegraf.conf to yours needs and:
-
-```
-docker exec telegraf telegraf
-```
-
-Working phase on Grafana
-
 ![Run docker containers](./screens/scr1.png)
 ![System common metrics](./screens/scr2.png)
 ![System metrics](./screens/scr3.png)
+
+
+
+Common testing flow via AB:
+
+``` sh
+./run.sh
+
+sleep 10 && date && ab -n 30000 -c 20 http://localhost/ && sleep 10 && 
+  date && ab -n 30000 -c 100 http://localhost/
+```
+
+On the result screen you can see common 2 spikes of the activity
+
+![Container CPU](./screens/container_cpu.png)
+![Container Network and RAM](./screens/container_network_ram.png)
+![Mongo](./screens/mongo.png)
+![Nginx](./screens/nging.png)
+![System IO](./screens/system_io.png)
+![System Load, Memory and CPU](./screens/system_load_memory_cpu.png)
