@@ -1,0 +1,12 @@
+#+TITLE: Readme
+
+* Common IDEA
+Create client via GAMP (Google Analytic Measurement Protocol)
+
+* Current implementation
+We choose the python as the main language
+Python has PyGAMP lib to send GA data
+* Execution
+./send-currency.sh will generate event each 120s (2 minutes) to send analytic as separate client to the predefined GA_TRACKING_ID
+
+The result and sent events could be seen on the Event page
