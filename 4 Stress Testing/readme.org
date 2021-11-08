@@ -1,0 +1,77 @@
+#+TITLE: Results
+
+* System Description
+- During request has postgresql query
+- During request has invocation of external services
+- Each request has wrapper of DataDog agent
+
+** Siege --concurrent=10 --time=30s
+| Transactions:            | 301 hits        |
+| Availability:            | 100.00 %        |
+| Elapsed time:            | 29.85 secs      |
+| Data transferred:        | 0.22 MB         |
+| Response time:           | 0.98 secs       |
+| Transaction rate:        | 10.08 trans/sec |
+| Throughput:              | 0.01 MB/sec     |
+| Concurrency:             | 9.84            |
+| Successful transactions: | 301             |
+| Failed transactions:     | 0               |
+| Longest transaction:     | 1.35            |
+| Shortest transaction:    | 0.64            |
+** Siege -d1 -c25
+| Transactions:            | 450 hits        |
+| Availability:            | 100.00 %        |
+| Elapsed time:            | 29.97 secs      |
+| Data transferred:        | 0.33 MB         |
+| Response time:           | 1.63 secs       |
+| Transaction rate:        | 15.02 trans/sec |
+| Throughput:              | 0.01 MB/sec     |
+| Concurrency:             | 24.40           |
+| Successful transactions: | 450             |
+| Failed transactions:     | 0               |
+| Longest transaction:     | 2.00            |
+| Shortest transaction:    | 1.29            |
+
+** [Performance Gap] Siege --time=30s --concurrent=30
+| Transactions:            | 423 hits        |
+| Availability:            | 94.84 %         |
+| Elapsed time:            | 29.13 secs      |
+| Data transferred:        | 0.46 MB         |
+| Response time:           | 2.30 secs       |
+| Transaction rate:        | 14.52 trans/sec |
+| Throughput:              | 0.02 MB/sec     |
+| Concurrency:             | 33.40           |
+| Successful transactions: | 423             |
+| Failed transactions:     | 23              |
+| Longest transaction:     | 3.63            |
+| Shortest transaction:    | 0.01            |
+
+** Siege --time=30s --concurrent=50
+| Transactions:            | 486 hit         |
+| Availability:            | 92.40 %         |
+| Elapsed time:            | 29.67 secs      |
+| Data transferred:        | 0.61 MB         |
+| Response time:           | 2.85 secs       |
+| Transaction rate:        | 16.38 trans/sec |
+| Throughput:              | 0.02 MB/sec     |
+| Concurrency:             | 46.63           |
+| Successful transactions: | 486             |
+| Failed transactions:     | 40              |
+| Longest transaction:     | 3.37            |
+| Shortest transaction:    | 0.00            |
+* Summary
+- System has performance gaps between 25 and 30 concurrent users
+  According to the logs the root cause is in DataDog agent
+
+* Probabistic cache model
+1. Configure Playframework + MongoDB according to the [[https://medium.com/geekculture/rest-api-with-scala-play-framework-and-reactive-mongo-5016e57846a9][steps]]
+2. mkdir ~/data
+3. Run Scala project by
+   #+begin_src bash
+sbt run
+   #+end_src
+4. Run Siege by
+   #+begin_src bash
+siege -c100 -t30S --content-type "application/json" 'http://localhost:9000/movies POST { "title":"My favorite movie", "description":"My favorite movie description" }'
+siege -c50 -t60S --content-type "application/json" 'http://localhost:9000/movies GET'
+   #+end_src
