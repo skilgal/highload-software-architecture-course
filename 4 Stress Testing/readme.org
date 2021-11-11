@@ -63,6 +63,7 @@
 - System has performance gaps between 25 and 30 concurrent users
   According to the logs the root cause is in DataDog agent
 
+
 * Probabistic cache model
 1. Configure Playframework + MongoDB according to the [[https://medium.com/geekculture/rest-api-with-scala-play-framework-and-reactive-mongo-5016e57846a9][steps]]
 2. mkdir ~/data
@@ -75,3 +76,81 @@ sbt run
 siege -c100 -t30S --content-type "application/json" 'http://localhost:9000/movies POST { "title":"My favorite movie", "description":"My favorite movie description" }'
 siege -c50 -t60S --content-type "application/json" 'http://localhost:9000/movies GET'
    #+end_src
+
+** [ No cache ]  siege --concurrent=300 --time=60s --content-type "application/json" 'http://localhost:9000/movies'
+
+change `project/**/routes` file to have route
+```
+GET     /movies                controllers.MovieController.findAll()
+```
+
+| Transactions:            | 26090 hits       |
+| Availability:            | 96.66 %          |
+| Elapsed time:            | 59.13 secs       |
+| Data transferred:        | 527.51 MB        |
+| Response time:           | 0.62 secs        |
+| Transaction rate:        | 441.23 trans/sec |
+| Throughput:              | 8.92 MB/sec      |
+| Concurrency:             | 273.61           |
+| Successful transactions: | 26090            |
+| Failed transactions:     | 902              |
+| Longest transaction:     | 14.81            |
+| Shortest transaction:    | 0.01             |
+
+** [ With cache duration more than siege time ] Siege -//-
+change `project/**/routes` file to have route
+```
+GET     /movies                controllers.MovieController.findAllCached()
+```
+
+| Transactions:            | 32344 hits       |
+| Availability:            | 97.98 %          |
+| Elapsed time:            | 60.04 secs       |
+| Data transferred:        | 653.96 MB        |
+| Response time:           | 0.34 secs        |
+| Transaction rate:        | 538.71 trans/sec |
+| Throughput:              | 10.89 MB/sec     |
+| Concurrency:             | 180.48           |
+| Successful transactions: | 32344            |
+| Failed transactions:     | 666              |
+| Longest transaction:     | 22.67            |
+| Shortest transaction:    | 0.00             |
+
+** [ With cache duration less than siege time ] Siege -//-
+change `project/**/routes` file to have route
+```
+# GET     /movies                controllers.MovieController.findAllCachedLimit()
+```
+
+
+| Transactions:            | 32640 hits       |
+| Availability:            | 98.35 %          |
+| Elapsed time:            | 59.34 secs       |
+| Data transferred:        | 659.94 MB        |
+| Response time:           | 0.27 secs        |
+| Transaction rate:        | 550.05 trans/sec |
+| Throughput:              | 11.12 MB/sec     |
+| Concurrency:             | 148.91           |
+| Successful transactions: | 32640            |
+| Failed transactions:     | 549              |
+| Longest transaction:     | 20.90            |
+| Shortest transaction:    | 0.00             |
+
+** [ With probabilistic cache ] Siege -//-
+change `project/**/routes` file to have route
+```
+GET     /movies                controllers.MovieController.findAllProbCached()
+```
+
+| Transactions:            | 30419 hits       |
+| Availability:            | 98.93 %          |
+| Elapsed time:            | 59.46 secs       |
+| Data transferred:        | 615.04 MB        |
+| Response time:           | 0.55 secs        |
+| Transaction rate:        | 511.59 trans/sec |
+| Throughput:              | 10.34 MB/sec     |
+| Concurrency:             | 280.77           |
+| Successful transactions: | 30419            |
+| Failed transactions:     | 329              |
+| Longest transaction:     | 26.92            |
+| Shortest transaction:    | 0.00             |
