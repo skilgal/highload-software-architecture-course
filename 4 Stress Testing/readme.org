@@ -77,8 +77,15 @@ siege -c100 -t30S --content-type "application/json" 'http://localhost:9000/movie
 siege -c50 -t60S --content-type "application/json" 'http://localhost:9000/movies GET'
    #+end_src
 
-** [ No cache ]  siege --concurrent=300 --time=60s --content-type "application/json" 'http://localhost:9000/movies'
 
+* Check the effect of the probabilistic cache
+Siege command for test
+
+#+begin_src bash
+siege --concurrent=300 --time=60s --content-type "application/json" 'http://localhost:9000/movies'
+#+end_src
+
+** .No cache
 change `project/**/routes` file to have route
 ```
 GET     /movies                controllers.MovieController.findAll()
@@ -97,7 +104,7 @@ GET     /movies                controllers.MovieController.findAll()
 | Longest transaction:     | 14.81            |
 | Shortest transaction:    | 0.01             |
 
-** [ With cache duration more than siege time ] Siege -//-
+** With cache duration more than siege time
 change `project/**/routes` file to have route
 ```
 GET     /movies                controllers.MovieController.findAllCached()
@@ -116,7 +123,7 @@ GET     /movies                controllers.MovieController.findAllCached()
 | Longest transaction:     | 22.67            |
 | Shortest transaction:    | 0.00             |
 
-** [ With cache duration less than siege time ] Siege -//-
+** With cache duration less than siege time
 change `project/**/routes` file to have route
 ```
 # GET     /movies                controllers.MovieController.findAllCachedLimit()
@@ -136,7 +143,7 @@ change `project/**/routes` file to have route
 | Longest transaction:     | 20.90            |
 | Shortest transaction:    | 0.00             |
 
-** [ With probabilistic cache ] Siege -//-
+** With probabilistic cache
 change `project/**/routes` file to have route
 ```
 GET     /movies                controllers.MovieController.findAllProbCached()
