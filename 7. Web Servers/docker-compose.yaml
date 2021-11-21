@@ -7,9 +7,16 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./cache:/data/nginx/cache
-      - ./images:/data/images
-      - ./html:/data/www
-      - /etc/localtime:/etc/localtime:ro
     ports:
       - 80:80
-      - 443:443
+    links:
+      - app
+  app:
+    image: nginx:latest
+    container_name: app
+    volumes:
+      - ./app.conf:/etc/nginx/nginx.conf
+      - ./images:/data/images
+      - ./html:/data/www
+    ports:
+      - 8080:80

@@ -1,0 +1,57 @@
+#+TITLE: Nginx image caching + cache purging
+
+* Common system description
+According to the information Nginx as web server can't cache static content, we need to have some application, which will respond with image data for our purposes
+
+** Nginx container `nginx` as web server with caching
+** Nginx container `app` as application, which will just return image content
+** `Nginx` have simple proxy_pass to the `app` container
+* Test caching functionality
+** [X] Nginx doesn't send request to `app`
+Steps:
+1. Start the system by `docker-compose up`
+2. Execute 3 same GET requests of the resource by `curl http://localhost/gebu.jpg`
+   #+begin_src bash
+        app      | /docker-entrypoint.sh: Configuration complete; ready for start up
+        nginx    | /docker-entrypoint.sh: Configuration complete; ready for start up
+
+        starting the test
+        nginx    | 10.10.163.1 - - [19/Nov/2021:16:33:06 +0000] "HEAD /gebu.jpg HTTP/1.1" 200 0 "-" "curl/7.64.1"
+        app      | 10.10.163.3 - - [19/Nov/2021:16:33:06 +0000] "GET /gebu.jpg HTTP/1.0" 200 65536 "-" "curl/7.64.1"
+        app      | 10.10.163.3 - - [19/Nov/2021:16:33:08 +0000] "GET /gebu.jpg HTTP/1.0" 200 86833 "-" "curl/7.64.1"
+        nginx    | 10.10.163.1 - - [19/Nov/2021:16:33:08 +0000] "HEAD /gebu.jpg HTTP/1.1" 200 0 "-" "curl/7.64.1"
+        nginx    | 10.10.163.1 - - [19/Nov/2021:16:33:12 +0000] "HEAD /gebu.jpg HTTP/1.1" 200 0 "-" "curl/7.64.1"
+        nginx    | 10.10.163.1 - - [19/Nov/2021:16:33:12 +0000] "HEAD /gebu.jpg HTTP/1.1" 200 0 "-" "curl/7.64.1"
+        nginx    | 10.10.163.1 - - [19/Nov/2021:16:33:13 +0000] "HEAD /gebu.jpg HTTP/1.1" 200 0 "-" "curl/7.64.1"
+        nginx    | 10.10.163.1 - - [19/Nov/2021:16:33:13 +0000] "HEAD /gebu.jpg HTTP/1.1" 200 0 "-" "curl/7.64.1"
+   #+end_src
+
+   As we can see first 2 requests read the information from `app` nginx but all other requests are executed on the `nginx` side
+** [X] Nginx cache folder has internal data
+Docker mounts cache directory from the project folder
+
+#+begin_src bash
+    ─$ ls -la cache
+    total 176
+    drwxr-xr-x@  3 dmytro  staff     96 Nov 19 18:33 .
+    drwxr-xr-x  10 dmytro  staff    320 Nov 19 18:24 ..
+    -rw-------   1 dmytro  staff  87433 Nov 19 18:33 2b80e967e1ead58eb725d823f29e1fde
+#+end_src
+** [X] Nginx purge cache for specific image by request
+    1. Request to generate cache
+    #+begin_src bash
+     curl -I "http://localhost/gebu.jpg"
+    #+end_src
+    2. Substitute initial images
+    #+begin_src bash
+    mv ./images/gebu.jpg ./images/gebu1.jpg
+    mv ./images/gebu2.jpg ./images/gebu.jpg
+    #+end_src
+    3. Send regenerate cache request
+    #+begin_src bash
+    curl -I "http://localhost/gebu.jpg?nocache=true"
+    #+end_src
+    4. Send request with cached request and check the image changed
+    #+begin_src bash
+    curl "http://localhost/gebu.jpg"
+    #+end_src
