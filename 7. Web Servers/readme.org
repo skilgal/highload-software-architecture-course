@@ -8,7 +8,7 @@ According to the information Nginx as web server can't cache static content, we 
 - `Nginx` have simple proxy_pass to the `app` container
 
 * Test caching functionality
-1. Nginx doesn't send request to `app`
+** Nginx doesn't send request to `app`
 Steps:
   1. Start the system by `docker-compose up`
   2. Execute 3 same GET requests of the resource by `curl http://localhost/gebu.jpg`
@@ -28,7 +28,7 @@ Steps:
      #+end_src
 
      As we can see first 2 requests read the information from `app` nginx but all other requests are executed on the `nginx` side
-2. Nginx cache folder has internal data
+** Nginx cache folder has data
 Docker mounts cache directory from the project folder
 
 #+begin_src bash
@@ -39,7 +39,7 @@ Docker mounts cache directory from the project folder
     -rw-------   1 dmytro  staff  87433 Nov 19 18:33 2b80e967e1ead58eb725d823f29e1fde
 #+end_src
 
-3. Nginx purge cache for specific image by request
+** Nginx purge cache for specific image by request
     1. Request to generate cache
 
     #+begin_src bash
