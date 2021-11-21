@@ -1,0 +1,117 @@
+#+TITLE: Readme
+
+* Pre Setup
+** Create Users table
+I'm using [[https://www.mycli.net/][mycli]] as terminal client
+
+1. Install CLI `brew install mycli`
+2. Run create table script
+#+begin_src bash
+mycli db -u user -p password < create-db.sql
+#+end_src
+** Insert 40B users
+I used python client to insert batches of data. 50_000 per 1 transaction
+
+#+begin_src bash
+python3 ./gen-data.py
+#+end_src
+
+#+begin_src bash
+MySQL user@localhost:db> select count(*) from users
++----------+
+| count(*) |
++----------+
+| 42320111 |
++----------+
+1 row in set
+Time: 52.257s
+#+end_src
+* Select requests by birthdate
+** Without index
+#+begin_src sql
+select count(*) from users where `birthDate` = '2021-11-21'
++----------+
+| count(*) |
++----------+
+| 103466   |
++----------+
+1 row in set
+#+end_src
+
+** With BTree index
+1. Create index
+#+begin_src sql
+
+    CREATE INDEX birthDate_index
+    USING BTREE
+    ON users ( birthDate )
+
+    Query OK, 0 rows affected
+    Time: 109.112s
+#+end_src
+1. Run equal search query
+   #+begin_src sql
+    select count(*) from users where `birthDate` = '2021-11-21'
+    +----------+
+    | count(*) |
+    +----------+
+    | 103466   |
+    +----------+
+    1 row in set
+    Time: 0.043s
+
+   #+end_src
+2. Run comparison search query
+   #+begin_src sql
+    select count(*) from users where `birthDate` < '2021-11-21'
+    +----------+
+    | count(*) |
+    +----------+
+    | 42216645 |
+    +----------+
+    1 row in set
+    Time: 47.308s
+   #+end_src
+3. Drop index
+   #+begin_src sql
+     DROP INDEX birthDate_index ON users;
+   #+end_src
+** With Hash index
+1. Create index
+#+begin_src sql
+    CREATE INDEX birthDate_index
+    USING HASH
+    ON users ( birthDate )
+
+    Query OK, 0 rows affected
+    Time: 107.162s
+#+end_src
+
+1. Run equal search query
+   #+begin_src sql
+    select count(*) from users where `birthDate` = '2021-11-21'
+    +----------+
+    | count(*) |
+    +----------+
+    | 103466   |
+    +----------+
+    1 row in set
+    Time: 0.039s
+   #+end_src
+
+2. Run comparison search query
+#+begin_src sql
+    select count(*) from users where `birthDate` < '2021-11-21'
+    +----------+
+    | count(*) |
+    +----------+
+    | 42216645 |
+    +----------+
+    1 row in set
+    Time: 47.549s
+#+end_src
+
+3. Drop index
+   #+begin_src sql
+     DROP INDEX birthDate_index ON users;
+   #+end_src
