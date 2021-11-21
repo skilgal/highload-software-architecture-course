@@ -3,9 +3,9 @@
 * Common system description
 According to the information Nginx as web server can't cache static content, we need to have some application, which will respond with image data for our purposes
 
-** Nginx container `nginx` as web server with caching
-** Nginx container `app` as application, which will just return image content
-** `Nginx` have simple proxy_pass to the `app` container
+- Nginx container `nginx` as web server with caching
+- Nginx container `app` as application, which will just return image content
+- `Nginx` have simple proxy_pass to the `app` container
 * Test caching functionality
 ** [X] Nginx doesn't send request to `app`
 Steps:
