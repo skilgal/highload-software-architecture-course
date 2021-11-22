@@ -40,7 +40,7 @@ select count(*) from users where `birthDate` = '2021-11-21'
 
 ** With BTree index
 1. Create index
-#+begin_src sql
+  #+begin_src sql
 
     CREATE INDEX birthDate_index
     USING BTREE
@@ -48,8 +48,9 @@ select count(*) from users where `birthDate` = '2021-11-21'
 
     Query OK, 0 rows affected
     Time: 109.112s
-#+end_src
-1. Run equal search query
+  #+end_src
+
+2. Run equal search query
    #+begin_src sql
     select count(*) from users where `birthDate` = '2021-11-21'
     +----------+
@@ -61,7 +62,7 @@ select count(*) from users where `birthDate` = '2021-11-21'
     Time: 0.043s
 
    #+end_src
-2. Run comparison search query
+3. Run comparison search query
    #+begin_src sql
     select count(*) from users where `birthDate` < '2021-11-21'
     +----------+
@@ -72,7 +73,7 @@ select count(*) from users where `birthDate` = '2021-11-21'
     1 row in set
     Time: 47.308s
    #+end_src
-3. Drop index
+4. Drop index
    #+begin_src sql
      DROP INDEX birthDate_index ON users;
    #+end_src
@@ -100,16 +101,16 @@ select count(*) from users where `birthDate` = '2021-11-21'
    #+end_src
 
 2. Run comparison search query
-#+begin_src sql
-    select count(*) from users where `birthDate` < '2021-11-21'
-    +----------+
-    | count(*) |
-    +----------+
-    | 42216645 |
-    +----------+
-    1 row in set
-    Time: 47.549s
-#+end_src
+    #+begin_src sql
+        select count(*) from users where `birthDate` < '2021-11-21'
+        +----------+
+        | count(*) |
+        +----------+
+        | 42216645 |
+        +----------+
+        1 row in set
+        Time: 47.549s
+    #+end_src
 
 3. Drop index
    #+begin_src sql
