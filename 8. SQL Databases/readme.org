@@ -116,3 +116,35 @@ select count(*) from users where `birthDate` = '2021-11-21'
    #+begin_src sql
      DROP INDEX birthDate_index ON users;
    #+end_src
+
+* Insertion speed
+
+#+begin_src mysql
+SET GLOBAL innodb_flush_log_at_trx_commit=0;
+SHOW VARIABLES LIKE 'innodb_flush_log_at_trx_commit';
++--------------------------------+-------+
+| Variable_name                  | Value |
++--------------------------------+-------+
+| innodb_flush_log_at_trx_commit | 0     |
++--------------------------------+-------+
+1 row in set
+Time: 0.026s
+#+end_src
+
+Count of inserted rows
+
+** Siege during 30 seconds
+| innodb_flush_log_at_trx_commit \ concurrent user count |    10 |    25 |    50 |   100 |
+|--------------------------------------------------------+-------+-------+-------+-------|
+|                                                      0 | 15169 | 11534 | 16328 | 16314 |
+|                                                      1 |  8693 | 11136 | 13699 | 15971 |
+|                                                      2 | 15756 | 12807 | 14659 | 14344 |
+
+
+** Siege during 60 seconds
+
+| innodb_flush_log_at_trx_commit \ concurrent user count |    10 |    25 |    50 |   100 |
+|--------------------------------------------------------+-------+-------+-------+-------|
+|                                                      0 | 32650 | 28823 | 27512 | 26229 |
+|                                                      1 | 28482 | 31300 | 25245 | 25015 |
+|                                                      2 | 31875 | 29040 | 27035 | 25273 |
