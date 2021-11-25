@@ -15,15 +15,16 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-for id in range(100):
+for id in range(800):
     sql = "INSERT INTO users (userName, password, realName, birthDate) VALUES (%s, %s, %s, %s)"
     data = []
-    for _ in range (50_000):
+    for _ in range(50_000):
         date = datetime.today() - timedelta(days=random.randint(1, 360))
         formatted_date = date.strftime("%Y-%m-%d %H:%M:%S")
-        data.append( (str_generator(), str_generator(), str_generator(), formatted_date) )
+        data.append((str_generator(), str_generator(), str_generator(), formatted_date))
 
-    print(f"{id * 50_000} record generated")
+    if id % 20 == 0:
+        print(f"{id / 20}m record generated")
     mycursor.executemany(sql, data)
     mydb.commit()
 
