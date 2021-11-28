@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.darren.transactionisolation.controller.PhantomReadControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-11-28T23:22:17" hostname="su-macbook-719f" time="5.419">
+  <properties/>
+  <testcase name="test_DEFAULT()" classname="com.darren.transactionisolation.controller.PhantomReadControllerTest" time="1.124"/>
+  <testcase name="test_READ_UNCOMMITTED()" classname="com.darren.transactionisolation.controller.PhantomReadControllerTest" time="1.094"/>
+  <testcase name="test_READ_COMMITTED()" classname="com.darren.transactionisolation.controller.PhantomReadControllerTest" time="1.07"/>
+  <testcase name="test_REPEATABLE_READ()" classname="com.darren.transactionisolation.controller.PhantomReadControllerTest" time="1.058"/>
+  <testcase name="test_SERIALIZABLE()" classname="com.darren.transactionisolation.controller.PhantomReadControllerTest" time="1.071"/>
+  <system-out><![CDATA[Profiles: mysql
+=========================================================
+|  audit(T1)                     | create(T2)           |
+---------------------------------------------------------
+|  List(score > 650, count = 2)  |                      |
+|                                |  create(score: 888)  |
+|                                |  Commit              |
+|  Update(score > 650)           |                      |
+|  List(score > 650, count = 3)  |                      |
+---------------------------------------------------------
+[Not Occur Dirty Read] Count is 2
+[Occur Dirty Read]     Count is 3
+=========================================================
+[Reset GameTasks]
+[DEFAULT] data: [GameTask(id=1, name=Darren, score=900, credit=1), GameTask(id=2, name=Frank, score=700, credit=1), GameTask(id=6, name=changemyminds, score=888, credit=1)]
+[DEFAULT] Phantom Read: occur !
+[Reset GameTasks]
+[READ_UNCOMMITTED] data: [GameTask(id=7, name=Darren, score=900, credit=1), GameTask(id=8, name=Frank, score=700, credit=1), GameTask(id=12, name=changemyminds, score=888, credit=1)]
+[READ_UNCOMMITTED] Phantom Read: occur !
+[Reset GameTasks]
+[READ_COMMITTED] data: [GameTask(id=13, name=Darren, score=900, credit=1), GameTask(id=14, name=Frank, score=700, credit=1), GameTask(id=18, name=changemyminds, score=888, credit=1)]
+[READ_COMMITTED] Phantom Read: occur !
+[Reset GameTasks]
+[REPEATABLE_READ] data: [GameTask(id=19, name=Darren, score=900, credit=1), GameTask(id=20, name=Frank, score=700, credit=1), GameTask(id=24, name=changemyminds, score=888, credit=1)]
+[REPEATABLE_READ] Phantom Read: occur !
+[Reset GameTasks]
+[SERIALIZABLE] data: [GameTask(id=25, name=Darren, score=900, credit=1), GameTask(id=26, name=Frank, score=700, credit=1)]
+[SERIALIZABLE] Phantom Read: don't occur !
+===========================================
+|  Isolation Level  |  Phantom Read       |
+-------------------------------------------
+|  DEFAULT           |  may occur         |
+|  READ_UNCOMMITTED  |  may occur         |
+|  READ_COMMITTED    |  may occur         |
+|  REPEATABLE_READ   |  may occur         |
+|  SERIALIZABLE      |  not occur         |
+===========================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

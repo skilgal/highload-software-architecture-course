@@ -1,0 +1,92 @@
+2021-11-29 01:04:27.860  INFO 50 : [SellTicket (T1)] Read Ticket(id=1, quantity=10)
+2021-11-29 01:04:28.362  INFO 51 : [SellTicket (T2)] Read Ticket(id=1, quantity=10)
+2021-11-29 01:04:28.864  INFO 50 : [SellTicket (T1)] Update selling quantity Ticket(id=1, quantity=6)
+2021-11-29 01:04:28.864  INFO 50 : [SellTicket (T1)] Commit
+2021-11-29 01:04:29.864  INFO 51 : [SellTicket (T2)] Update selling quantity Ticket(id=1, quantity=9)
+2021-11-29 01:04:29.865  INFO 51 : [SellTicket (T2)] Commit
+2021-11-29 01:04:29.877  INFO 53 : [SellTicket (T1)] Read Ticket(id=2, quantity=10)
+2021-11-29 01:04:30.381  INFO 54 : [SellTicket (T2)] Read Ticket(id=2, quantity=10)
+2021-11-29 01:04:30.882  INFO 53 : [SellTicket (T1)] Update selling quantity Ticket(id=2, quantity=6)
+2021-11-29 01:04:30.882  INFO 53 : [SellTicket (T1)] Commit
+2021-11-29 01:04:31.888  INFO 54 : [SellTicket (T2)] Update selling quantity Ticket(id=2, quantity=9)
+2021-11-29 01:04:31.888  INFO 54 : [SellTicket (T2)] Commit
+2021-11-29 01:04:31.898  INFO 55 : [SellTicket (T1)] Read Ticket(id=3, quantity=10)
+2021-11-29 01:04:32.399  INFO 56 : [SellTicket (T2)] Read Ticket(id=3, quantity=10)
+2021-11-29 01:04:32.903  INFO 55 : [SellTicket (T1)] Update selling quantity Ticket(id=3, quantity=6)
+2021-11-29 01:04:32.903  INFO 55 : [SellTicket (T1)] Commit
+2021-11-29 01:04:33.905  INFO 56 : [SellTicket (T2)] Update selling quantity Ticket(id=3, quantity=9)
+2021-11-29 01:04:33.906  INFO 56 : [SellTicket (T2)] Commit
+2021-11-29 01:04:33.915  INFO 57 : [SellTicket (T1)] Read Ticket(id=4, quantity=10)
+2021-11-29 01:04:34.420  INFO 58 : [SellTicket (T2)] Read Ticket(id=4, quantity=10)
+2021-11-29 01:04:34.921  INFO 57 : [SellTicket (T1)] Update selling quantity Ticket(id=4, quantity=6)
+2021-11-29 01:04:34.921  INFO 57 : [SellTicket (T1)] Commit
+2021-11-29 01:04:35.925  INFO 58 : [SellTicket (T2)] Update selling quantity Ticket(id=4, quantity=9)
+2021-11-29 01:04:35.925  INFO 58 : [SellTicket (T2)] Commit
+2021-11-29 01:04:35.934  INFO 59 : [SellTicket (T1)] Read Ticket(id=5, quantity=10)
+2021-11-29 01:04:36.437  INFO 60 : [SellTicket (T2)] Read Ticket(id=5, quantity=10)
+2021-11-29 01:04:36.940  INFO 59 : [SellTicket (T1)] Update selling quantity Ticket(id=5, quantity=6)
+2021-11-29 01:04:36.940  INFO 59 : [SellTicket (T1)] Commit
+2021-11-29 01:04:37.943  INFO 60 : [SellTicket (T2)] Update selling quantity Ticket(id=5, quantity=9)
+2021-11-29 01:04:37.943  INFO 60 : [SellTicket (T2)] Commit
+2021-11-29 01:19:55.346  INFO 43 : [SellTicket (T1)] Read Ticket(id=1, quantity=10)
+2021-11-29 01:19:55.848  INFO 44 : [SellTicket (T2)] Read Ticket(id=1, quantity=10)
+2021-11-29 01:19:56.353  INFO 43 : [SellTicket (T1)] Update selling quantity Ticket(id=1, quantity=6)
+2021-11-29 01:19:56.353  INFO 43 : [SellTicket (T1)] Commit
+2021-11-29 01:19:57.353  INFO 44 : [SellTicket (T2)] Update selling quantity Ticket(id=1, quantity=9)
+2021-11-29 01:19:57.353  INFO 44 : [SellTicket (T2)] Commit
+2021-11-29 01:19:57.385  INFO 45 : [SellTicket (T1)] Read Ticket(id=2, quantity=10)
+2021-11-29 01:19:57.887  INFO 46 : [SellTicket (T2)] Read Ticket(id=2, quantity=10)
+2021-11-29 01:19:58.388  INFO 45 : [SellTicket (T1)] Update selling quantity Ticket(id=2, quantity=6)
+2021-11-29 01:19:58.389  INFO 45 : [SellTicket (T1)] Commit
+2021-11-29 01:19:59.394  INFO 46 : [SellTicket (T2)] Update selling quantity Ticket(id=2, quantity=9)
+2021-11-29 01:19:59.395  INFO 46 : [SellTicket (T2)] Commit
+2021-11-29 01:19:59.427  INFO 48 : [SellTicket (T1)] Read Ticket(id=3, quantity=10)
+2021-11-29 01:19:59.929  INFO 49 : [SellTicket (T2)] Read Ticket(id=3, quantity=10)
+2021-11-29 01:20:00.433  INFO 48 : [SellTicket (T1)] Update selling quantity Ticket(id=3, quantity=6)
+2021-11-29 01:20:00.433  INFO 48 : [SellTicket (T1)] Commit
+2021-11-29 01:20:01.436  INFO 49 : [SellTicket (T2)] Update selling quantity Ticket(id=3, quantity=9)
+2021-11-29 01:20:01.436  INFO 49 : [SellTicket (T2)] Commit
+2021-11-29 01:20:01.468  INFO 50 : [SellTicket (T1)] Read Ticket(id=4, quantity=10)
+2021-11-29 01:20:01.971  INFO 51 : [SellTicket (T2)] Read Ticket(id=4, quantity=10)
+2021-11-29 01:20:02.474  INFO 50 : [SellTicket (T1)] Update selling quantity Ticket(id=4, quantity=6)
+2021-11-29 01:20:02.474  INFO 50 : [SellTicket (T1)] Commit
+2021-11-29 01:20:03.477  INFO 51 : [SellTicket (T2)] Update selling quantity Ticket(id=4, quantity=9)
+2021-11-29 01:20:03.477  INFO 51 : [SellTicket (T2)] Commit
+2021-11-29 01:20:03.514  INFO 52 : [SellTicket (T1)] Read Ticket(id=5, quantity=10)
+2021-11-29 01:20:04.013  INFO 53 : [SellTicket (T2)] Read Ticket(id=5, quantity=10)
+2021-11-29 01:20:05.521  INFO 52 : [SellTicket (T1)] Update selling quantity Ticket(id=5, quantity=6)
+2021-11-29 01:20:05.521  INFO 52 : [SellTicket (T1)] Commit
+2021-11-29 01:20:06.145  INFO 53 : [SellTicket (T2)] Read Ticket(id=5, quantity=6)
+2021-11-29 01:20:07.651  INFO 53 : [SellTicket (T2)] Update selling quantity Ticket(id=5, quantity=5)
+2021-11-29 01:20:07.652  INFO 53 : [SellTicket (T2)] Commit
+2021-11-29 01:22:05.342  INFO 48 : [SellTicket (T1)] Read Ticket(id=1, quantity=10)
+2021-11-29 01:22:05.845  INFO 49 : [SellTicket (T2)] Read Ticket(id=1, quantity=10)
+2021-11-29 01:22:06.351  INFO 48 : [SellTicket (T1)] Update selling quantity Ticket(id=1, quantity=6)
+2021-11-29 01:22:06.352  INFO 48 : [SellTicket (T1)] Commit
+2021-11-29 01:22:07.350  INFO 49 : [SellTicket (T2)] Update selling quantity Ticket(id=1, quantity=9)
+2021-11-29 01:22:07.350  INFO 49 : [SellTicket (T2)] Commit
+2021-11-29 01:22:07.381  INFO 51 : [SellTicket (T1)] Read Ticket(id=2, quantity=10)
+2021-11-29 01:22:07.885  INFO 52 : [SellTicket (T2)] Read Ticket(id=2, quantity=10)
+2021-11-29 01:22:08.390  INFO 51 : [SellTicket (T1)] Update selling quantity Ticket(id=2, quantity=6)
+2021-11-29 01:22:08.390  INFO 51 : [SellTicket (T1)] Commit
+2021-11-29 01:22:09.391  INFO 52 : [SellTicket (T2)] Update selling quantity Ticket(id=2, quantity=9)
+2021-11-29 01:22:09.391  INFO 52 : [SellTicket (T2)] Commit
+2021-11-29 01:22:09.421  INFO 53 : [SellTicket (T1)] Read Ticket(id=3, quantity=10)
+2021-11-29 01:22:09.927  INFO 54 : [SellTicket (T2)] Read Ticket(id=3, quantity=10)
+2021-11-29 01:22:10.428  INFO 53 : [SellTicket (T1)] Update selling quantity Ticket(id=3, quantity=6)
+2021-11-29 01:22:10.428  INFO 53 : [SellTicket (T1)] Commit
+2021-11-29 01:22:11.432  INFO 54 : [SellTicket (T2)] Update selling quantity Ticket(id=3, quantity=9)
+2021-11-29 01:22:11.432  INFO 54 : [SellTicket (T2)] Commit
+2021-11-29 01:22:11.460  INFO 55 : [SellTicket (T1)] Read Ticket(id=4, quantity=10)
+2021-11-29 01:22:11.964  INFO 56 : [SellTicket (T2)] Read Ticket(id=4, quantity=10)
+2021-11-29 01:22:12.468  INFO 55 : [SellTicket (T1)] Update selling quantity Ticket(id=4, quantity=6)
+2021-11-29 01:22:12.468  INFO 55 : [SellTicket (T1)] Commit
+2021-11-29 01:22:13.468  INFO 56 : [SellTicket (T2)] Update selling quantity Ticket(id=4, quantity=9)
+2021-11-29 01:22:13.468  INFO 56 : [SellTicket (T2)] Commit
+2021-11-29 01:22:13.495  INFO 57 : [SellTicket (T1)] Read Ticket(id=5, quantity=10)
+2021-11-29 01:22:14.001  INFO 58 : [SellTicket (T2)] Read Ticket(id=5, quantity=10)
+2021-11-29 01:22:15.510  INFO 57 : [SellTicket (T1)] Update selling quantity Ticket(id=5, quantity=6)
+2021-11-29 01:22:15.510  INFO 57 : [SellTicket (T1)] Commit
+2021-11-29 01:22:16.144  INFO 58 : [SellTicket (T2)] Read Ticket(id=5, quantity=6)
+2021-11-29 01:22:17.649  INFO 58 : [SellTicket (T2)] Update selling quantity Ticket(id=5, quantity=5)
+2021-11-29 01:22:17.649  INFO 58 : [SellTicket (T2)] Commit

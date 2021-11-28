@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://${sqlserver-ip:localhost}:${sqlserver-port:1433};database=test_isolation
+    username: sa
+    password: 1234Hellowrold
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+
+logging:
+  config: classpath:log4j2-test.xml

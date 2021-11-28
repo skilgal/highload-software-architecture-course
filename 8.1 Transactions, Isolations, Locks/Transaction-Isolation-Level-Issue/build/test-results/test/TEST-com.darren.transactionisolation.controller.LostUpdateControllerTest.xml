@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.darren.transactionisolation.controller.LostUpdateControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-11-28T23:22:05" hostname="su-macbook-719f" time="12.343">
+  <properties/>
+  <testcase name="test_DEFAULT()" classname="com.darren.transactionisolation.controller.LostUpdateControllerTest" time="2.046"/>
+  <testcase name="test_READ_UNCOMMITTED()" classname="com.darren.transactionisolation.controller.LostUpdateControllerTest" time="2.039"/>
+  <testcase name="test_READ_COMMITTED()" classname="com.darren.transactionisolation.controller.LostUpdateControllerTest" time="2.041"/>
+  <testcase name="test_REPEATABLE_READ()" classname="com.darren.transactionisolation.controller.LostUpdateControllerTest" time="2.034"/>
+  <testcase name="test_SERIALIZABLE()" classname="com.darren.transactionisolation.controller.LostUpdateControllerTest" time="4.181"/>
+  <system-out><![CDATA[Profiles: mysql
+[Reset Ticket]
+======================================
+|  SellTicket(T1)  | SellTicket(T2)  |
+--------------------------------------
+|  Read(10)       |                  |
+|                 | Read(10)         |
+|  Sell(10 - 4)   |                  |
+|  Commit         |                  |
+|                 | Sell(10 - 1)     |
+|                 | Commit           |
+--------------------------------------
+[Not Occur Lost Update] Amount is 5
+[Occur Lost Update]     Amount is 9
+======================================
+[DEFAULT] data: Ticket(id=1, quantity=9)
+[DEFAULT] Lost Update: occur !
+[READ_UNCOMMITTED] data: Ticket(id=2, quantity=9)
+[READ_UNCOMMITTED] Lost Update: occur !
+[READ_COMMITTED] data: Ticket(id=3, quantity=9)
+[READ_COMMITTED] Lost Update: occur !
+[REPEATABLE_READ] data: Ticket(id=4, quantity=9)
+[REPEATABLE_READ] Lost Update: occur !
+2021-11-29 01:22:15.520 ?[33m WARN?[m ?[35m58298?[m [ool-16-thread-2] ?[36mo.h.e.j.s.SqlExceptionHelper            ?[m : SQL Error: 1213, SQLState: 40001
+2021-11-29 01:22:15.521 ?[31mERROR?[m ?[35m58298?[m [ool-16-thread-2] ?[36mo.h.e.j.s.SqlExceptionHelper            ?[m : Deadlock found when trying to get lock; try restarting transaction
+[SERIALIZABLE] data: Ticket(id=5, quantity=5)
+Actual: 5
+expect: 5
+[SERIALIZABLE] Lost Update: don't occur !
+===========================================
+|  Isolation Level  |  Lost Update        |
+-------------------------------------------
+|  DEFAULT           |  may occur         |
+|  READ_UNCOMMITTED  |  may occur         |
+|  READ_COMMITTED    |  may occur         |
+|  REPEATABLE_READ   |  may occur         |
+|  SERIALIZABLE      |  not occur         |
+===========================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

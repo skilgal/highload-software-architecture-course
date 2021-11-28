@@ -1,0 +1,105 @@
+2021-11-29 01:04:15.006  INFO 30 : [Deposit (T1)] Read Account: Account(id=1, amount=0)
+2021-11-29 01:04:15.022  INFO 30 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:04:15.495  INFO 31 : [Withdraw (T2)] Read Account: Account(id=1, amount=0)
+2021-11-29 01:04:16.024  INFO 30 : [Deposit (T1)] Rollback
+2021-11-29 01:04:16.499  INFO 31 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:04:16.499  INFO 31 : [Withdraw (T2)] Commit
+2021-11-29 01:04:16.506  INFO 11 : [Result] Account(id=1, amount=-300)
+2021-11-29 01:04:16.647  INFO 32 : [Deposit (T1)] Read Account: Account(id=2, amount=0)
+2021-11-29 01:04:16.649  INFO 32 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:04:17.149  INFO 33 : [Withdraw (T2)] Read Account: Account(id=2, amount=500)
+2021-11-29 01:04:17.654  INFO 32 : [Deposit (T1)] Rollback
+2021-11-29 01:04:18.153  INFO 33 : [Withdraw (T2)] 500 - 300 = 200
+2021-11-29 01:04:18.153  INFO 33 : [Withdraw (T2)] Commit
+2021-11-29 01:04:18.157  INFO 11 : [Result] Account(id=2, amount=200)
+2021-11-29 01:04:18.187  INFO 34 : [Deposit (T1)] Read Account: Account(id=3, amount=0)
+2021-11-29 01:04:18.189  INFO 34 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:04:18.693  INFO 35 : [Withdraw (T2)] Read Account: Account(id=3, amount=0)
+2021-11-29 01:04:19.194  INFO 34 : [Deposit (T1)] Rollback
+2021-11-29 01:04:19.698  INFO 35 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:04:19.698  INFO 35 : [Withdraw (T2)] Commit
+2021-11-29 01:04:19.701  INFO 11 : [Result] Account(id=3, amount=-300)
+2021-11-29 01:04:19.708  INFO 36 : [Deposit (T1)] Read Account: Account(id=4, amount=0)
+2021-11-29 01:04:19.709  INFO 36 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:04:20.213  INFO 37 : [Withdraw (T2)] Read Account: Account(id=4, amount=0)
+2021-11-29 01:04:20.714  INFO 36 : [Deposit (T1)] Rollback
+2021-11-29 01:04:21.214  INFO 37 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:04:21.214  INFO 37 : [Withdraw (T2)] Commit
+2021-11-29 01:04:21.217  INFO 11 : [Result] Account(id=4, amount=-300)
+2021-11-29 01:04:21.226  INFO 38 : [Deposit (T1)] Read Account: Account(id=5, amount=0)
+2021-11-29 01:04:21.227  INFO 38 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:04:21.728  INFO 39 : [Withdraw (T2)] Read Account: Account(id=5, amount=0)
+2021-11-29 01:04:22.231  INFO 38 : [Deposit (T1)] Rollback
+2021-11-29 01:04:22.731  INFO 39 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:04:22.731  INFO 39 : [Withdraw (T2)] Commit
+2021-11-29 01:04:22.735  INFO 11 : [Result] Account(id=5, amount=-300)
+2021-11-29 01:19:41.670  INFO 23 : [Deposit (T1)] Read Account: Account(id=1, amount=0)
+2021-11-29 01:19:41.689  INFO 23 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:19:42.162  INFO 24 : [Withdraw (T2)] Read Account: Account(id=1, amount=0)
+2021-11-29 01:19:42.692  INFO 23 : [Deposit (T1)] Rollback
+2021-11-29 01:19:43.162  INFO 24 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:19:43.163  INFO 24 : [Withdraw (T2)] Commit
+2021-11-29 01:19:43.192  INFO 11 : [Result] Account(id=1, amount=-300)
+2021-11-29 01:19:43.385  INFO 25 : [Deposit (T1)] Read Account: Account(id=2, amount=0)
+2021-11-29 01:19:43.388  INFO 25 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:19:43.893  INFO 26 : [Withdraw (T2)] Read Account: Account(id=2, amount=500)
+2021-11-29 01:19:44.392  INFO 25 : [Deposit (T1)] Rollback
+2021-11-29 01:19:44.895  INFO 26 : [Withdraw (T2)] 500 - 300 = 200
+2021-11-29 01:19:44.895  INFO 26 : [Withdraw (T2)] Commit
+2021-11-29 01:19:44.916  INFO 11 : [Result] Account(id=2, amount=200)
+2021-11-29 01:19:44.954  INFO 27 : [Deposit (T1)] Read Account: Account(id=3, amount=0)
+2021-11-29 01:19:44.957  INFO 27 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:19:45.462  INFO 28 : [Withdraw (T2)] Read Account: Account(id=3, amount=0)
+2021-11-29 01:19:45.961  INFO 27 : [Deposit (T1)] Rollback
+2021-11-29 01:19:46.465  INFO 28 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:19:46.465  INFO 28 : [Withdraw (T2)] Commit
+2021-11-29 01:19:46.490  INFO 11 : [Result] Account(id=3, amount=-300)
+2021-11-29 01:19:46.504  INFO 29 : [Deposit (T1)] Read Account: Account(id=4, amount=0)
+2021-11-29 01:19:46.507  INFO 29 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:19:47.012  INFO 30 : [Withdraw (T2)] Read Account: Account(id=4, amount=0)
+2021-11-29 01:19:47.511  INFO 29 : [Deposit (T1)] Rollback
+2021-11-29 01:19:48.012  INFO 30 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:19:48.012  INFO 30 : [Withdraw (T2)] Commit
+2021-11-29 01:19:48.033  INFO 11 : [Result] Account(id=4, amount=-300)
+2021-11-29 01:19:48.042  INFO 31 : [Deposit (T1)] Read Account: Account(id=5, amount=0)
+2021-11-29 01:19:48.045  INFO 31 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:19:49.046  INFO 31 : [Deposit (T1)] Rollback
+2021-11-29 01:19:49.050  INFO 32 : [Withdraw (T2)] Read Account: Account(id=5, amount=0)
+2021-11-29 01:19:50.052  INFO 32 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:19:50.052  INFO 32 : [Withdraw (T2)] Commit
+2021-11-29 01:19:50.075  INFO 11 : [Result] Account(id=5, amount=-300)
+2021-11-29 01:21:51.714  INFO 28 : [Deposit (T1)] Read Account: Account(id=1, amount=0)
+2021-11-29 01:21:51.730  INFO 28 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:21:52.202  INFO 29 : [Withdraw (T2)] Read Account: Account(id=1, amount=0)
+2021-11-29 01:21:52.734  INFO 28 : [Deposit (T1)] Rollback
+2021-11-29 01:21:53.207  INFO 29 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:21:53.207  INFO 29 : [Withdraw (T2)] Commit
+2021-11-29 01:21:53.231  INFO 11 : [Result] Account(id=1, amount=-300)
+2021-11-29 01:21:53.360  INFO 30 : [Deposit (T1)] Read Account: Account(id=2, amount=0)
+2021-11-29 01:21:53.363  INFO 30 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:21:53.867  INFO 31 : [Withdraw (T2)] Read Account: Account(id=2, amount=500)
+2021-11-29 01:21:54.366  INFO 30 : [Deposit (T1)] Rollback
+2021-11-29 01:21:54.869  INFO 31 : [Withdraw (T2)] 500 - 300 = 200
+2021-11-29 01:21:54.870  INFO 31 : [Withdraw (T2)] Commit
+2021-11-29 01:21:54.899  INFO 11 : [Result] Account(id=2, amount=200)
+2021-11-29 01:21:54.940  INFO 32 : [Deposit (T1)] Read Account: Account(id=3, amount=0)
+2021-11-29 01:21:54.942  INFO 32 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:21:55.448  INFO 33 : [Withdraw (T2)] Read Account: Account(id=3, amount=0)
+2021-11-29 01:21:55.945  INFO 32 : [Deposit (T1)] Rollback
+2021-11-29 01:21:56.450  INFO 33 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:21:56.451  INFO 33 : [Withdraw (T2)] Commit
+2021-11-29 01:21:56.471  INFO 11 : [Result] Account(id=3, amount=-300)
+2021-11-29 01:21:56.482  INFO 34 : [Deposit (T1)] Read Account: Account(id=4, amount=0)
+2021-11-29 01:21:56.485  INFO 34 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:21:56.989  INFO 35 : [Withdraw (T2)] Read Account: Account(id=4, amount=0)
+2021-11-29 01:21:57.485  INFO 34 : [Deposit (T1)] Rollback
+2021-11-29 01:21:57.993  INFO 35 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:21:57.993  INFO 35 : [Withdraw (T2)] Commit
+2021-11-29 01:21:58.012  INFO 11 : [Result] Account(id=4, amount=-300)
+2021-11-29 01:21:58.022  INFO 36 : [Deposit (T1)] Read Account: Account(id=5, amount=0)
+2021-11-29 01:21:58.025  INFO 36 : [Deposit (T1)] 0 + 500 = 500
+2021-11-29 01:21:59.027  INFO 36 : [Deposit (T1)] Rollback
+2021-11-29 01:21:59.034  INFO 37 : [Withdraw (T2)] Read Account: Account(id=5, amount=0)
+2021-11-29 01:22:00.039  INFO 37 : [Withdraw (T2)] 0 - 300 = -300
+2021-11-29 01:22:00.039  INFO 37 : [Withdraw (T2)] Commit
+2021-11-29 01:22:00.068  INFO 11 : [Result] Account(id=5, amount=-300)

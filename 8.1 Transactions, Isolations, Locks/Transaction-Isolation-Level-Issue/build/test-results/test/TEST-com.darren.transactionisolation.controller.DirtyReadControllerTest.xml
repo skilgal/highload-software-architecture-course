@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.darren.transactionisolation.controller.DirtyReadControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-11-28T23:21:51" hostname="su-macbook-719f" time="8.445">
+  <properties/>
+  <testcase name="test_DEFAULT()" classname="com.darren.transactionisolation.controller.DirtyReadControllerTest" time="1.723"/>
+  <testcase name="test_READ_UNCOMMITTED()" classname="com.darren.transactionisolation.controller.DirtyReadControllerTest" time="1.553"/>
+  <testcase name="test_READ_COMMITTED()" classname="com.darren.transactionisolation.controller.DirtyReadControllerTest" time="1.542"/>
+  <testcase name="test_REPEATABLE_READ()" classname="com.darren.transactionisolation.controller.DirtyReadControllerTest" time="1.541"/>
+  <testcase name="test_SERIALIZABLE()" classname="com.darren.transactionisolation.controller.DirtyReadControllerTest" time="2.056"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.3.10.RELEASE)
+
+Profiles: mysql
+[Reset Account]
+=============================================
+|  Deposit(T1)       | Withdraw(T2)         |
+---------------------------------------------
+|  Read(0)           |                      |
+|  deposit(0 + 500)  |                      |
+|  save              |                      |
+|                    |  Read(500)           |
+|  Rollback          |                      |
+|                    |  Withdraw(500 - 300) |
+|                    |  Commit              |
+---------------------------------------------
+[Not Occur Dirty Read] Amount is -300
+[Occur Dirty Read]     Amount is 200
+=============================================
+[DEFAULT] data: Account(id=1, amount=-300)
+[DEFAULT] Dirty Read: don't occur !
+[READ_UNCOMMITTED] data: Account(id=2, amount=200)
+[READ_UNCOMMITTED] Dirty Read: occur !
+[READ_COMMITTED] data: Account(id=3, amount=-300)
+[READ_COMMITTED] Dirty Read: don't occur !
+[REPEATABLE_READ] data: Account(id=4, amount=-300)
+[REPEATABLE_READ] Dirty Read: don't occur !
+[SERIALIZABLE] data: Account(id=5, amount=-300)
+[SERIALIZABLE] Dirty Read: don't occur !
+===========================================
+|  Isolation Level  |  Dirty Read         |
+-------------------------------------------
+|  DEFAULT           |  not occur         |
+|  READ_UNCOMMITTED  |  may occur         |
+|  READ_COMMITTED    |  not occur         |
+|  REPEATABLE_READ   |  not occur         |
+|  SERIALIZABLE      |  not occur         |
+===========================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

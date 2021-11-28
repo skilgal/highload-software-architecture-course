@@ -1,0 +1,165 @@
+2021-11-29 01:04:22.761  INFO 40 : Isolation DEFAULT, 
+2021-11-29 01:04:22.776  INFO 40 : Inventory(id=1, quantity=0)
+2021-11-29 01:04:22.776  INFO 40 : [AcquireInventory (T1)] Read Inventory(id=1, quantity=0)
+2021-11-29 01:04:23.279  INFO 41 : Inventory(id=1, quantity=0)
+2021-11-29 01:04:23.279  INFO 41 : [Purchase (T2)] Read Inventory(id=1, quantity=0)
+2021-11-29 01:04:23.279  INFO 41 : [Purchase (T2)] 0 + Inventory(id=1, quantity=900) = 900
+2021-11-29 01:04:23.280  INFO 41 : [Purchase (T2)] Commit
+2021-11-29 01:04:23.778  INFO 40 : Inventory(id=1, quantity=900)
+2021-11-29 01:04:23.778  INFO 40 : [AcquireInventory (T1)] Read Again Inventory(id=1, quantity=900)
+2021-11-29 01:04:23.787  INFO 42 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:04:23.789  INFO 42 : Inventory(id=2, quantity=0)
+2021-11-29 01:04:23.789  INFO 42 : [AcquireInventory (T1)] Read Inventory(id=2, quantity=0)
+2021-11-29 01:04:24.292  INFO 43 : Inventory(id=2, quantity=0)
+2021-11-29 01:04:24.292  INFO 43 : [Purchase (T2)] Read Inventory(id=2, quantity=0)
+2021-11-29 01:04:24.292  INFO 43 : [Purchase (T2)] 0 + Inventory(id=2, quantity=900) = 900
+2021-11-29 01:04:24.293  INFO 43 : [Purchase (T2)] Commit
+2021-11-29 01:04:24.791  INFO 42 : Inventory(id=2, quantity=900)
+2021-11-29 01:04:24.791  INFO 42 : [AcquireInventory (T1)] Read Again Inventory(id=2, quantity=900)
+2021-11-29 01:04:24.797  INFO 44 : Isolation READ_COMMITTED, 
+2021-11-29 01:04:24.798  INFO 44 : Inventory(id=3, quantity=0)
+2021-11-29 01:04:24.798  INFO 44 : [AcquireInventory (T1)] Read Inventory(id=3, quantity=0)
+2021-11-29 01:04:25.299  INFO 45 : Inventory(id=3, quantity=0)
+2021-11-29 01:04:25.299  INFO 45 : [Purchase (T2)] Read Inventory(id=3, quantity=0)
+2021-11-29 01:04:25.299  INFO 45 : [Purchase (T2)] 0 + Inventory(id=3, quantity=900) = 900
+2021-11-29 01:04:25.300  INFO 45 : [Purchase (T2)] Commit
+2021-11-29 01:04:25.803  INFO 44 : Inventory(id=3, quantity=900)
+2021-11-29 01:04:25.804  INFO 44 : [AcquireInventory (T1)] Read Again Inventory(id=3, quantity=900)
+2021-11-29 01:04:25.812  INFO 46 : Isolation REPEATABLE_READ, 
+2021-11-29 01:04:25.813  INFO 46 : Inventory(id=4, quantity=0)
+2021-11-29 01:04:25.813  INFO 46 : [AcquireInventory (T1)] Read Inventory(id=4, quantity=0)
+2021-11-29 01:04:26.315  INFO 47 : Inventory(id=4, quantity=0)
+2021-11-29 01:04:26.315  INFO 47 : [Purchase (T2)] Read Inventory(id=4, quantity=0)
+2021-11-29 01:04:26.315  INFO 47 : [Purchase (T2)] 0 + Inventory(id=4, quantity=900) = 900
+2021-11-29 01:04:26.316  INFO 47 : [Purchase (T2)] Commit
+2021-11-29 01:04:26.817  INFO 46 : Inventory(id=4, quantity=0)
+2021-11-29 01:04:26.817  INFO 46 : [AcquireInventory (T1)] Read Again Inventory(id=4, quantity=0)
+2021-11-29 01:04:26.824  INFO 48 : Isolation SERIALIZABLE, 
+2021-11-29 01:04:26.825  INFO 48 : Inventory(id=5, quantity=0)
+2021-11-29 01:04:26.825  INFO 48 : [AcquireInventory (T1)] Read Inventory(id=5, quantity=0)
+2021-11-29 01:04:27.328  INFO 49 : Inventory(id=5, quantity=0)
+2021-11-29 01:04:27.328  INFO 49 : [Purchase (T2)] Read Inventory(id=5, quantity=0)
+2021-11-29 01:04:27.328  INFO 49 : [Purchase (T2)] 0 + Inventory(id=5, quantity=900) = 900
+2021-11-29 01:04:27.329  INFO 49 : [Purchase (T2)] Commit
+2021-11-29 01:04:27.828  INFO 48 : Inventory(id=5, quantity=0)
+2021-11-29 01:04:27.828  INFO 48 : [AcquireInventory (T1)] Read Again Inventory(id=5, quantity=0)
+2021-11-29 01:04:27.853  INFO 51 : Isolation DEFAULT, 
+2021-11-29 01:04:27.853  INFO 50 : Isolation DEFAULT, 
+2021-11-29 01:04:29.875  INFO 53 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:04:29.875  INFO 54 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:04:31.896  INFO 55 : Isolation READ_COMMITTED, 
+2021-11-29 01:04:31.896  INFO 56 : Isolation READ_COMMITTED, 
+2021-11-29 01:04:33.913  INFO 57 : Isolation REPEATABLE_READ, 
+2021-11-29 01:04:33.913  INFO 58 : Isolation REPEATABLE_READ, 
+2021-11-29 01:04:35.932  INFO 60 : Isolation SERIALIZABLE, 
+2021-11-29 01:04:35.932  INFO 59 : Isolation SERIALIZABLE, 
+2021-11-29 01:19:50.127  INFO 33 : Isolation DEFAULT, 
+2021-11-29 01:19:50.146  INFO 33 : Inventory(id=1, quantity=0)
+2021-11-29 01:19:50.146  INFO 33 : [AcquireInventory (T1)] Read Inventory(id=1, quantity=0)
+2021-11-29 01:19:50.647  INFO 34 : Inventory(id=1, quantity=0)
+2021-11-29 01:19:50.647  INFO 34 : [Purchase (T2)] Read Inventory(id=1, quantity=0)
+2021-11-29 01:19:50.647  INFO 34 : [Purchase (T2)] 0 + Inventory(id=1, quantity=900) = 900
+2021-11-29 01:19:50.651  INFO 34 : [Purchase (T2)] Commit
+2021-11-29 01:19:51.153  INFO 33 : Inventory(id=1, quantity=0)
+2021-11-29 01:19:51.153  INFO 33 : [AcquireInventory (T1)] Read Again Inventory(id=1, quantity=0)
+2021-11-29 01:19:51.170  INFO 35 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:19:51.181  INFO 35 : Inventory(id=2, quantity=0)
+2021-11-29 01:19:51.181  INFO 35 : [AcquireInventory (T1)] Read Inventory(id=2, quantity=0)
+2021-11-29 01:19:51.680  INFO 36 : Inventory(id=2, quantity=0)
+2021-11-29 01:19:51.680  INFO 36 : [Purchase (T2)] Read Inventory(id=2, quantity=0)
+2021-11-29 01:19:51.680  INFO 36 : [Purchase (T2)] 0 + Inventory(id=2, quantity=900) = 900
+2021-11-29 01:19:51.682  INFO 36 : [Purchase (T2)] Commit
+2021-11-29 01:19:52.187  INFO 35 : Inventory(id=2, quantity=900)
+2021-11-29 01:19:52.187  INFO 35 : [AcquireInventory (T1)] Read Again Inventory(id=2, quantity=900)
+2021-11-29 01:19:52.198  INFO 37 : Isolation READ_COMMITTED, 
+2021-11-29 01:19:52.205  INFO 37 : Inventory(id=3, quantity=0)
+2021-11-29 01:19:52.205  INFO 37 : [AcquireInventory (T1)] Read Inventory(id=3, quantity=0)
+2021-11-29 01:19:52.707  INFO 38 : Inventory(id=3, quantity=0)
+2021-11-29 01:19:52.708  INFO 38 : [Purchase (T2)] Read Inventory(id=3, quantity=0)
+2021-11-29 01:19:52.708  INFO 38 : [Purchase (T2)] 0 + Inventory(id=3, quantity=900) = 900
+2021-11-29 01:19:52.710  INFO 38 : [Purchase (T2)] Commit
+2021-11-29 01:19:53.212  INFO 37 : Inventory(id=3, quantity=900)
+2021-11-29 01:19:53.212  INFO 37 : [AcquireInventory (T1)] Read Again Inventory(id=3, quantity=900)
+2021-11-29 01:19:53.224  INFO 39 : Isolation REPEATABLE_READ, 
+2021-11-29 01:19:53.230  INFO 39 : Inventory(id=4, quantity=0)
+2021-11-29 01:19:53.230  INFO 39 : [AcquireInventory (T1)] Read Inventory(id=4, quantity=0)
+2021-11-29 01:19:53.734  INFO 40 : Inventory(id=4, quantity=0)
+2021-11-29 01:19:53.734  INFO 40 : [Purchase (T2)] Read Inventory(id=4, quantity=0)
+2021-11-29 01:19:53.734  INFO 40 : [Purchase (T2)] 0 + Inventory(id=4, quantity=900) = 900
+2021-11-29 01:19:53.737  INFO 40 : [Purchase (T2)] Commit
+2021-11-29 01:19:54.239  INFO 39 : Inventory(id=4, quantity=0)
+2021-11-29 01:19:54.239  INFO 39 : [AcquireInventory (T1)] Read Again Inventory(id=4, quantity=0)
+2021-11-29 01:19:54.251  INFO 41 : Isolation SERIALIZABLE, 
+2021-11-29 01:19:54.262  INFO 41 : Inventory(id=5, quantity=0)
+2021-11-29 01:19:54.262  INFO 41 : [AcquireInventory (T1)] Read Inventory(id=5, quantity=0)
+2021-11-29 01:19:54.763  INFO 42 : Inventory(id=5, quantity=0)
+2021-11-29 01:19:54.763  INFO 42 : [Purchase (T2)] Read Inventory(id=5, quantity=0)
+2021-11-29 01:19:54.763  INFO 42 : [Purchase (T2)] 0 + Inventory(id=5, quantity=900) = 900
+2021-11-29 01:19:55.269  INFO 41 : Inventory(id=5, quantity=0)
+2021-11-29 01:19:55.270  INFO 41 : [AcquireInventory (T1)] Read Again Inventory(id=5, quantity=0)
+2021-11-29 01:19:55.271  INFO 42 : [Purchase (T2)] Commit
+2021-11-29 01:19:55.334  INFO 43 : Isolation DEFAULT, 
+2021-11-29 01:19:55.334  INFO 44 : Isolation DEFAULT, 
+2021-11-29 01:19:57.378  INFO 45 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:19:57.378  INFO 46 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:19:59.419  INFO 48 : Isolation READ_COMMITTED, 
+2021-11-29 01:19:59.419  INFO 49 : Isolation READ_COMMITTED, 
+2021-11-29 01:20:01.458  INFO 51 : Isolation REPEATABLE_READ, 
+2021-11-29 01:20:01.458  INFO 50 : Isolation REPEATABLE_READ, 
+2021-11-29 01:20:03.502  INFO 52 : Isolation SERIALIZABLE, 
+2021-11-29 01:20:03.502  INFO 53 : Isolation SERIALIZABLE, 
+2021-11-29 01:22:00.141  INFO 38 : Isolation DEFAULT, 
+2021-11-29 01:22:00.168  INFO 38 : Inventory(id=1, quantity=0)
+2021-11-29 01:22:00.168  INFO 38 : [AcquireInventory (T1)] Read Inventory(id=1, quantity=0)
+2021-11-29 01:22:00.663  INFO 39 : Inventory(id=1, quantity=0)
+2021-11-29 01:22:00.664  INFO 39 : [Purchase (T2)] Read Inventory(id=1, quantity=0)
+2021-11-29 01:22:00.664  INFO 39 : [Purchase (T2)] 0 + Inventory(id=1, quantity=900) = 900
+2021-11-29 01:22:00.667  INFO 39 : [Purchase (T2)] Commit
+2021-11-29 01:22:01.174  INFO 38 : Inventory(id=1, quantity=0)
+2021-11-29 01:22:01.174  INFO 38 : [AcquireInventory (T1)] Read Again Inventory(id=1, quantity=0)
+2021-11-29 01:22:01.188  INFO 40 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:22:01.199  INFO 40 : Inventory(id=2, quantity=0)
+2021-11-29 01:22:01.199  INFO 40 : [AcquireInventory (T1)] Read Inventory(id=2, quantity=0)
+2021-11-29 01:22:01.698  INFO 41 : Inventory(id=2, quantity=0)
+2021-11-29 01:22:01.698  INFO 41 : [Purchase (T2)] Read Inventory(id=2, quantity=0)
+2021-11-29 01:22:01.698  INFO 41 : [Purchase (T2)] 0 + Inventory(id=2, quantity=900) = 900
+2021-11-29 01:22:01.700  INFO 41 : [Purchase (T2)] Commit
+2021-11-29 01:22:02.204  INFO 40 : Inventory(id=2, quantity=900)
+2021-11-29 01:22:02.204  INFO 40 : [AcquireInventory (T1)] Read Again Inventory(id=2, quantity=900)
+2021-11-29 01:22:02.214  INFO 42 : Isolation READ_COMMITTED, 
+2021-11-29 01:22:02.220  INFO 42 : Inventory(id=3, quantity=0)
+2021-11-29 01:22:02.220  INFO 42 : [AcquireInventory (T1)] Read Inventory(id=3, quantity=0)
+2021-11-29 01:22:02.724  INFO 43 : Inventory(id=3, quantity=0)
+2021-11-29 01:22:02.725  INFO 43 : [Purchase (T2)] Read Inventory(id=3, quantity=0)
+2021-11-29 01:22:02.725  INFO 43 : [Purchase (T2)] 0 + Inventory(id=3, quantity=900) = 900
+2021-11-29 01:22:02.728  INFO 43 : [Purchase (T2)] Commit
+2021-11-29 01:22:03.226  INFO 42 : Inventory(id=3, quantity=900)
+2021-11-29 01:22:03.226  INFO 42 : [AcquireInventory (T1)] Read Again Inventory(id=3, quantity=900)
+2021-11-29 01:22:03.239  INFO 44 : Isolation REPEATABLE_READ, 
+2021-11-29 01:22:03.245  INFO 44 : Inventory(id=4, quantity=0)
+2021-11-29 01:22:03.246  INFO 44 : [AcquireInventory (T1)] Read Inventory(id=4, quantity=0)
+2021-11-29 01:22:03.748  INFO 45 : Inventory(id=4, quantity=0)
+2021-11-29 01:22:03.748  INFO 45 : [Purchase (T2)] Read Inventory(id=4, quantity=0)
+2021-11-29 01:22:03.748  INFO 45 : [Purchase (T2)] 0 + Inventory(id=4, quantity=900) = 900
+2021-11-29 01:22:03.751  INFO 45 : [Purchase (T2)] Commit
+2021-11-29 01:22:04.251  INFO 44 : Inventory(id=4, quantity=0)
+2021-11-29 01:22:04.252  INFO 44 : [AcquireInventory (T1)] Read Again Inventory(id=4, quantity=0)
+2021-11-29 01:22:04.260  INFO 46 : Isolation SERIALIZABLE, 
+2021-11-29 01:22:04.268  INFO 46 : Inventory(id=5, quantity=0)
+2021-11-29 01:22:04.268  INFO 46 : [AcquireInventory (T1)] Read Inventory(id=5, quantity=0)
+2021-11-29 01:22:04.771  INFO 47 : Inventory(id=5, quantity=0)
+2021-11-29 01:22:04.771  INFO 47 : [Purchase (T2)] Read Inventory(id=5, quantity=0)
+2021-11-29 01:22:04.771  INFO 47 : [Purchase (T2)] 0 + Inventory(id=5, quantity=900) = 900
+2021-11-29 01:22:05.274  INFO 46 : Inventory(id=5, quantity=0)
+2021-11-29 01:22:05.274  INFO 46 : [AcquireInventory (T1)] Read Again Inventory(id=5, quantity=0)
+2021-11-29 01:22:05.277  INFO 47 : [Purchase (T2)] Commit
+2021-11-29 01:22:05.331  INFO 49 : Isolation DEFAULT, 
+2021-11-29 01:22:05.331  INFO 48 : Isolation DEFAULT, 
+2021-11-29 01:22:07.374  INFO 51 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:22:07.374  INFO 52 : Isolation READ_UNCOMMITTED, 
+2021-11-29 01:22:09.415  INFO 53 : Isolation READ_COMMITTED, 
+2021-11-29 01:22:09.415  INFO 54 : Isolation READ_COMMITTED, 
+2021-11-29 01:22:11.455  INFO 55 : Isolation REPEATABLE_READ, 
+2021-11-29 01:22:11.455  INFO 56 : Isolation REPEATABLE_READ, 
+2021-11-29 01:22:13.489  INFO 58 : Isolation SERIALIZABLE, 
+2021-11-29 01:22:13.489  INFO 57 : Isolation SERIALIZABLE, 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.darren.transactionisolation.controller.UnrepeatableReadControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-11-28T23:22:00" hostname="su-macbook-719f" time="5.154">
+  <properties/>
+  <testcase name="test_DEFAULT()" classname="com.darren.transactionisolation.controller.UnrepeatableReadControllerTest" time="1.051"/>
+  <testcase name="test_READ_UNCOMMITTED()" classname="com.darren.transactionisolation.controller.UnrepeatableReadControllerTest" time="1.025"/>
+  <testcase name="test_READ_COMMITTED()" classname="com.darren.transactionisolation.controller.UnrepeatableReadControllerTest" time="1.025"/>
+  <testcase name="test_REPEATABLE_READ()" classname="com.darren.transactionisolation.controller.UnrepeatableReadControllerTest" time="1.022"/>
+  <testcase name="test_SERIALIZABLE()" classname="com.darren.transactionisolation.controller.UnrepeatableReadControllerTest" time="1.029"/>
+  <system-out><![CDATA[Profiles: mysql
+[Reset Inventory]
+======================================
+|  Acquire(T1)  | Purchase(T2)       |
+--------------------------------------
+|  Read(0)      |                    |
+|               |  Read(0)           |
+|               |  Purchase(0 +900)  |
+|               |  Commit            |
+|  Read(900)    |                    |
+--------------------------------------
+[Not Occur Dirty Read] Amount is 0
+[Occur Dirty Read]     Amount is 900
+======================================
+[DEFAULT] data: Inventory(id=1, quantity=0)
+[DEFAULT] Unrepeatable Read: don't occur !
+[READ_UNCOMMITTED] data: Inventory(id=2, quantity=900)
+[READ_UNCOMMITTED] Unrepeatable Read: occur !
+[READ_COMMITTED] data: Inventory(id=3, quantity=900)
+[READ_COMMITTED] Unrepeatable Read: occur !
+[REPEATABLE_READ] data: Inventory(id=4, quantity=0)
+[REPEATABLE_READ] Unrepeatable Read: don't occur !
+[SERIALIZABLE] data: Inventory(id=5, quantity=0)
+[SERIALIZABLE] Unrepeatable Read: don't occur !
+===========================================
+|  Isolation Level  |  Unrepeatable Read  |
+-------------------------------------------
+|  DEFAULT           |  not occur         |
+|  READ_UNCOMMITTED  |  may occur         |
+|  READ_COMMITTED    |  may occur         |
+|  REPEATABLE_READ   |  not occur         |
+|  SERIALIZABLE      |  not occur         |
+===========================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
