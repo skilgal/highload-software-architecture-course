@@ -35,7 +35,7 @@ sqlserver-port=4033
 
 ### Use the JUnit 5 to test
 
-![002](images/002.gif)
+![002](Transaction-Isolation-Level-Issue/images/002.gif)
 
 
 ## Database Testing Result
