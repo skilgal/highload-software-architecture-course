@@ -1,0 +1,23 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <ScalaCodeStyleSettings>
+      <option name="classCountToUseImportOnDemand" value="3" />
+      <option name="importLayout">
+        <array>
+          <option value="base package imports" />
+          <option value="com.depop.cx.disputes" />
+          <option value="_______ blank line _______" />
+          <option value="com.depop" />
+          <option value="all other imports" />
+          <option value="_______ blank line _______" />
+          <option value="java" />
+          <option value="javax" />
+          <option value="scala" />
+        </array>
+      </option>
+      <option name="SCALAFMT_REFORMAT_ON_FILES_SAVE" value="true" />
+      <option name="FORMATTER" value="1" />
+      <option name="MULTILINE_STRING_CLOSING_QUOTES_ON_NEW_LINE" value="true" />
+    </ScalaCodeStyleSettings>
+  </code_scheme>
+</component>

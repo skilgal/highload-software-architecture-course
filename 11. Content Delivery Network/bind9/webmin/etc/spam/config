@@ -1,0 +1,12 @@
+mode=0
+call_spam=1
+warn_procmail=1
+restart_cmd=/etc/init.d/spamassassin restart
+max_awl=200
+spamassassin=spamassassin
+local_cf=/etc/spamassassin/local.cf
+processes=spamd amavisd
+addto=0
+procmail_cmd=*
+sa_learn=sa-learn
+procmailrc=/etc/procmailrc

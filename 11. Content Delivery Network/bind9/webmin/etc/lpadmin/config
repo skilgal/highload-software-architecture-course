@@ -1,0 +1,17 @@
+show_status=0
+stop_cmd=/etc/rc.d/init.d/cupsys stop
+print_style=cups
+gs_path=gs
+display_mode=0
+gs_fontpath=
+iface_arg=
+sort_mode=0
+spool_dir=/var/spool/cups
+smbclient_path=smbclient
+gs_lib=
+driver_style=cups
+iface_perms=755
+show_jobs=0
+iface_owner=lp:lp
+model_path=/usr/share/cups/model
+start_cmd=/etc/rc.d/init.d/cupsys start

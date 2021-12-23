@@ -1,0 +1,9 @@
+file=/etc/pptpd.conf
+start_cmd=/etc/init.d/pptpd start
+log_file=/var/log/messages
+pptp_ppp_options=/etc/ppp/pptpd-options
+stop_cmd=/etc/init.d/pptpd stop
+pid_file=/var/run/pptpd.pid
+ppp_options=/etc/ppp/options
+pap_file=/etc/ppp/chap-secrets
+pptpd=pptpd
