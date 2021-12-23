@@ -27,3 +27,4 @@ tail -f ./db/logs/mysql-slow.log
 
  - Display slow query log 
  
+ ![Slow Logs](./pictures/slow-logs-kibana.png) 
