@@ -1,0 +1,29 @@
+#+TITLE: Progress of the course
+
+1. [X] Introduction. Resources and their limitations
+2. [X] Resource monitoring systems
+3. [X] Monitoring systems for user metrics
+4. [X] Stress Testing. Approaches and tools
+5. [ ] Mathematical methods of analysis
+6. [X] High Load Applications Architecture
+7. [X] Web Servers
+8. [X] SQL Databases
+   1. [X] Transactions, Isolations, Locks
+9. [ ] NoSQL Databases
+10. [ ] Queues
+11. [ ] Content Delivery Network
+12. [ ] Balancing
+13. [ ] Logging
+14. [ ] DDoS Attacks
+15. [ ] [[https://www.notion.so/prjctr/15-Peak-Loadings-882c2094ab804587a05a4fc1ea6bcef4][Peak Loading]]
+16. #NEXT_TO_DO [ ] [[https://www.notion.so/prjctr/16-Storages-Physics-HDD-SSD-RAM-a241d10c9cdf4c4abd8b4790dc3b760f][Storages Physics: HDD, SSD, RAM]]
+17. [ ] [[https://www.notion.so/prjctr/17-Data-structures-and-Algorithms-9a73e687e71c47798cca9ae3d74b9540][Data structures and Algorithms]]
+18. [ ] [[https://www.notion.so/prjctr/18-Database-Replication-d86d55d2d51a49ea8efbc7292f6ba209][Database: Replication]]
+19. [ ]
+20. [ ]
+21. [ ]
+22. [ ]
+23. [ ]
+24. [ ]
+25. [ ]
+26. [ ]
