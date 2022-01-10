@@ -1,4 +1,0 @@
-pam_ldap=/etc/pam_ldap.conf
-auth_ldap=/etc/libnss-ldap.conf
-secret=/etc/ldap.secret
-init_name=nslcd
