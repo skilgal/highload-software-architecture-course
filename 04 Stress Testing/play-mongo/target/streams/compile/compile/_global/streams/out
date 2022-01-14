@@ -1,0 +1,25 @@
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/models/Movie.scala:19:49: package object json in package json is deprecated (since 0.19.2): Will be replaced `reactivemongo.play.json.compat._` from `reactivemongo-play-json-compat`[0m
+[0m[[0m[33mwarn[0m] [0m[0m  implicit val fmt : Format[Movie] = Json.format[Movie][0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/repositories/MovieRepository.scala:25:13: method toDocumentWriter in trait LowPriorityPackage is deprecated (since 0.19.0): Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._[0m
+[0m[[0m[33mwarn[0m] [0m[0m      _.find(BSONDocument(), Option.empty[Movie])[0m
+[0m[[0m[33mwarn[0m] [0m[0m            ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/repositories/MovieRepository.scala:26:23: method toDocumentReader in trait LowPriorityPackage is deprecated (since 0.19.0): Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._[0m
+[0m[[0m[33mwarn[0m] [0m[0m        .cursor[Movie](ReadPreference.Primary)[0m
+[0m[[0m[33mwarn[0m] [0m[0m                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/repositories/MovieRepository.scala:34:13: method toDocumentWriter in trait LowPriorityPackage is deprecated (since 0.19.0): Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._[0m
+[0m[[0m[33mwarn[0m] [0m[0m      _.find(BSONDocument("_id" -> id), Option.empty[Movie]).one[Movie][0m
+[0m[[0m[33mwarn[0m] [0m[0m            ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/repositories/MovieRepository.scala:34:65: method toDocumentReader in trait LowPriorityPackage is deprecated (since 0.19.0): Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._[0m
+[0m[[0m[33mwarn[0m] [0m[0m      _.find(BSONDocument("_id" -> id), Option.empty[Movie]).one[Movie][0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/repositories/MovieRepository.scala:42:15: method toDocumentWriter in trait LowPriorityPackage is deprecated (since 0.19.0): Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._[0m
+[0m[[0m[33mwarn[0m] [0m[0m          .one([0m
+[0m[[0m[33mwarn[0m] [0m[0m              ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/repositories/MovieRepository.scala:54:36: method toDocumentWriter in trait LowPriorityPackage is deprecated (since 0.19.0): Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._[0m
+[0m[[0m[33mwarn[0m] [0m[0m      _.update(ordered = false).one([0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/app/repositories/MovieRepository.scala:63:21: method toDocumentWriter in trait LowPriorityPackage is deprecated (since 0.19.0): Use reactivemongo-bson-api or use reactivemongo-bson-compat: import reactivemongo.api.bson.compat._[0m
+[0m[[0m[33mwarn[0m] [0m[0m      _.delete().one(BSONDocument("_id" -> id), Some(1))[0m
+[0m[[0m[33mwarn[0m] [0m[0m                    ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m8 warnings found[0m

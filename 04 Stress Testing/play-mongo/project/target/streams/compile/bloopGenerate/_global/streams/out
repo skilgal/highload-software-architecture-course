@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0m[play-mongo-build] Classpath dependencies List()[0m
+[0m[[0m[0mdebug[0m] [0m[0m[play-mongo-build] Dependencies from configurations List()[0m
+[0m[[0m[0mdebug[0m] [0m[0mBloop wrote the configuration of project 'play-mongo-build' to '/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/project/.bloop/play-mongo-build.json'[0m
+[0m[[0m[32msuccess[0m] [0m[0mGenerated .bloop/play-mongo-build.json[0m

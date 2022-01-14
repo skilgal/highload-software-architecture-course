@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/dmytro/Downloads/play-mongo/test/controllers/HomeControllerSpec.scala:19:28: not found: type HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m      val controller = new HomeController(stubControllerComponents())[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/dmytro/Downloads/play-mongo/test/controllers/HomeControllerSpec.scala:28:31: not found: type HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m      val controller = inject[HomeController][0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

@@ -1,0 +1,9 @@
+# Routes
+# GET     /movies                controllers.MovieController.findAllProbCached()
+# GET     /movies                controllers.MovieController.findAllCachedLimit()
+# GET     /movies                controllers.MovieController.findAllCached()
+GET     /movies                controllers.MovieController.findAll()
+GET     /movies/:id            controllers.MovieController.findOne(id: String)
+POST    /movies                controllers.MovieController.create()
+PUT     /movies/:id            controllers.MovieController.update(id: String)
+DELETE  /movies/:id            controllers.MovieController.delete(id: String)

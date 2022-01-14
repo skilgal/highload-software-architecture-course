@@ -1,0 +1,50 @@
+2021-11-11 20:31:07 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2021-11-11 20:31:07 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
+2021-11-11 20:33:38 [31mWARN [0;39m [36mr.core.actors.MongoDBSystem[0;39m [35m[0;39m [Supervisor-1/Connection-1] The entire node set is unreachable, is there a network problem?
+2021-11-11 20:34:08 [1;31mERROR[0;39m [36mr.core.actors.MongoDBSystem[0;39m [35m[0;39m [Supervisor-1/Connection-1] Fails to send a isMaster request to localhost:27017 (channel #d21ead79)
+java.nio.channels.ClosedChannelException: null
+	at reactivemongo.io.netty.channel.AbstractChannel$AbstractUnsafe.newClosedChannelException(AbstractChannel.java:957)
+	at reactivemongo.io.netty.channel.AbstractChannel$AbstractUnsafe.write(AbstractChannel.java:865)
+	at reactivemongo.io.netty.channel.DefaultChannelPipeline$HeadContext.write(DefaultChannelPipeline.java:1367)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.invokeWrite0(AbstractChannelHandlerContext.java:715)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.invokeWriteAndFlush(AbstractChannelHandlerContext.java:762)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext$WriteTask.run(AbstractChannelHandlerContext.java:1089)
+	at reactivemongo.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+	at reactivemongo.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at reactivemongo.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500)
+	at reactivemongo.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at reactivemongo.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at reactivemongo.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2021-11-11 20:34:19 [1;31mERROR[0;39m [36mr.core.actors.MongoDBSystem[0;39m [35m[0;39m [Supervisor-1/Connection-1] Fails to send a isMaster request to localhost:27017 (channel #42e46ca6)
+java.nio.channels.ClosedChannelException: null
+	at reactivemongo.io.netty.channel.AbstractChannel$AbstractUnsafe.newClosedChannelException(AbstractChannel.java:957)
+	at reactivemongo.io.netty.channel.AbstractChannel$AbstractUnsafe.write(AbstractChannel.java:865)
+	at reactivemongo.io.netty.channel.DefaultChannelPipeline$HeadContext.write(DefaultChannelPipeline.java:1367)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.invokeWrite0(AbstractChannelHandlerContext.java:715)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.invokeWriteAndFlush(AbstractChannelHandlerContext.java:762)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.write(AbstractChannelHandlerContext.java:788)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.writeAndFlush(AbstractChannelHandlerContext.java:756)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.invokeWriteAndFlush(AbstractChannelHandlerContext.java:765)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.write(AbstractChannelHandlerContext.java:788)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.writeAndFlush(AbstractChannelHandlerContext.java:756)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext.invokeWriteAndFlush(AbstractChannelHandlerContext.java:765)
+	at reactivemongo.io.netty.channel.AbstractChannelHandlerContext$WriteTask.run(AbstractChannelHandlerContext.java:1089)
+	at reactivemongo.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+	at reactivemongo.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at reactivemongo.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500)
+	at reactivemongo.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at reactivemongo.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at reactivemongo.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2021-11-12 00:16:45 [34mINFO [0;39m [36mplay.core.server.AkkaHttpServer[0;39m [35m[0;39m Stopping Akka HTTP server...
+2021-11-12 00:16:45 [34mINFO [0;39m [36mplay.core.server.AkkaHttpServer[0;39m [35m[0;39m Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-11-12 00:16:45 [34mINFO [0;39m [36mp.m.r.DefaultReactiveMongoApi[0;39m [35m[0;39m ReactiveMongoApi stopping...
+2021-11-12 00:16:45 [34mINFO [0;39m [36mp.m.r.DefaultReactiveMongoApi[0;39m [35m[0;39m ReactiveMongoApi connections are stopped
+2021-11-12 00:16:45 [31mWARN [0;39m [36makka.actor.CoordinatedShutdown[0;39m [35mCoordinatedShutdown(akka://reactivemongo)[0;39m Could not addJvmShutdownHook, due to: Shutdown in progress
+2021-11-12 00:16:45 [34mINFO [0;39m [36mplay.core.server.AkkaHttpServer[0;39m [35m[0;39m Running provided shutdown stop hooks

@@ -1,0 +1,4 @@
+[debug] "not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/Users/dmytro/Git/highload-software-architecture/4%20Stress%20Testing/play-mongo/"), "root")...
+[debug] Done updating ProjectRef(uri("file:/Users/dmytro/Git/highload-software-architecture/4%20Stress%20Testing/play-mongo/"), "root")
+[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.

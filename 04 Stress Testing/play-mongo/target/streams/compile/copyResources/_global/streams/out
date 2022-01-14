@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/conf/logback.xml,/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/target/scala-2.13/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/conf/messages,/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/target/scala-2.13/classes/messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/conf/application.conf,/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/target/scala-2.13/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/conf/routes,/Users/dmytro/Git/highload-software-architecture/4 Stress Testing/play-mongo/target/scala-2.13/classes/routes)[0m
