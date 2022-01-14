@@ -1,0 +1,22 @@
+#+TITLE: HSA17 Data Structures and Algorithms
+
+* Algorithm implementation
+** BST [0/3] :file `BST.worksheet.sc`
+*** [x] insert
+*** [x] find
+*** [x] delete
+
+** Counting Sort
+* Tests algorithm
+** Generate 100 random data sets
+
+#+begin_src amm :results output
+
+
+#+end_src
+
+#+RESULTS:
+: Hi
+: defined trait Maybe
+: defined object Empty
+: defined class Just

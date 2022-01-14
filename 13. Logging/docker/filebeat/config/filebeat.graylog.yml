@@ -1,0 +1,15 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.modules:
+  - module: mysql
+    slowlog:
+      enabled: true
+      var.paths: ["/var/log/mysql/mysql-slow.log"]
+
+setup.dashboard.enabled: false
+
+output.logstash:
+  hosts: ["graylog:5045"]
