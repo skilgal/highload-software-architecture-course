@@ -1,4 +1,10 @@
 /system-monitoring/data/
+# common
+**/.metals
+**/.bsp
+**/.bloop
+
 
 # 13. Logging
 /13. Logging/volume/
+/17. data structures and Algorithms/__pycache__/
