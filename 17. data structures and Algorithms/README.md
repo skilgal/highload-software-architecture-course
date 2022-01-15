@@ -7,11 +7,7 @@ title: HSA17 Data Structures and Algorithms
 
 ## BST \[0/3\] :file \`BST.worksheet.sc\`
 
-### \[x\] insert
-
-### \[x\] find
-
-### \[x\] delete
+[BST implementation](bst.py)
 
 ## Counting Sort
 

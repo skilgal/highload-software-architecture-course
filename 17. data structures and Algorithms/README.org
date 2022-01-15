@@ -52,7 +52,6 @@ open bst-insert-measurement.png
 
 #+RESULTS:
 
-![Insert BST](file:bst-insert-measurement.png)
 [[file:bst-insert-measurement.png][Insert BST]]
 
 *** Search
