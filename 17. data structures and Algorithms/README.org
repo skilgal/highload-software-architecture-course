@@ -329,7 +329,7 @@ import os
 
 print("Counting Sort measurement")
 
-dataSetSize = 1000
+dataSetSize = 500
 
 filename = os.path.join(os.path.dirname(__file__), "./data/counting-diff.dat")
 file_object = open(filename, "w")
@@ -360,4 +360,3 @@ open 'complexity/counting-diff.png'
 #+end_src
 
 #+RESULTS:
-[[file:complexity/counting-diff.png][Counting Diff with big range between common and the highest]]

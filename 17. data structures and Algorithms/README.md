@@ -309,7 +309,7 @@ import os
 
 print("Counting Sort measurement")
 
-dataSetSize = 1000
+dataSetSize = 500
 
 filename = os.path.join(os.path.dirname(__file__), "./data/counting-diff.dat")
 file_object = open(filename, "w")
