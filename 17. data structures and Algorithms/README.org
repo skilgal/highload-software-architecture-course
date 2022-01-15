@@ -52,7 +52,7 @@ open bst-insert-measurement.png
 
 #+RESULTS:
 
-[Insert BST](file:bst-insert-measurement.png)
+![Insert BST](file:bst-insert-measurement.png)
 [[file:bst-insert-measurement.png][Insert BST]]
 
 *** Search
@@ -96,7 +96,7 @@ open bst-search-measurement.png
 
 #+RESULTS:
 
-[Search BST](file:bst-search-measurement.png)
+![Search BST](file:bst-search-measurement.png)
 [[file:bst-search-measurement.png][Search BST]]
 
 *** Delete
@@ -137,5 +137,5 @@ open bst-delete-measurement.png
 
 #+RESULTS:
 
-[Delete BST](file:bst-delete-measurement.png)
+![Delete BST](file:bst-delete-measurement.png)
 [[file:bst-delete-measurement.png][Delete BST]]
