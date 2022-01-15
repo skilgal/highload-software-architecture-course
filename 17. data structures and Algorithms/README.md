@@ -7,13 +7,11 @@ title: HSA17 Data Structures and Algorithms
 
 ## BST \[0/3\] :file \`BST.worksheet.sc\`
 
-### \[x\] insert
-
-### \[x\] find
-
-### \[x\] delete
+[Binary Search Tree Implementation](impl/bst.py)
 
 ## Counting Sort
+
+[Counting Sort](impl/counting.py)
 
 # Tests algorithm
 
@@ -264,3 +262,77 @@ open 'complexity/counting-random.png'
 ```
 
 ![Counting Random](complexity/counting-random.png)
+
+### Same elements data set
+
+``` python
+from impl.counting import *
+from random import randint
+import time
+import os
+
+print("Counting Sort measurement")
+
+dataSetSize = 1000
+
+filename = os.path.join(os.path.dirname(__file__), "./data/counting-same.dat")
+file_object = open(filename, "w")
+file_object.write("# array_size time\n")
+for size in range(1, dataSetSize):
+    data = []
+
+    for i in range(0, size):
+        data.append(100)
+
+    start = time.perf_counter_ns()
+    sort(data)
+    end = time.perf_counter_ns()
+    file_object.write("{} {}\n".format(size, end - start))
+
+file_object.close()
+```
+
+Script saves result to the \`bst-delete-measurement.png\` file
+
+``` shell
+gnuplot 'counting-same.p'
+open 'complexity/counting-same.png'
+```
+
+### Data set contains the highest element with big diff compared to other
+
+``` python
+from impl.counting import *
+from random import randint
+import time
+import os
+
+print("Counting Sort measurement")
+
+dataSetSize = 1000
+
+filename = os.path.join(os.path.dirname(__file__), "./data/counting-diff.dat")
+file_object = open(filename, "w")
+file_object.write("# array_size time\n")
+for size in range(1, dataSetSize):
+    data = []
+
+    for i in range(0, size):
+        data.append(1)
+    data.append(1_000_000)
+
+    start = time.perf_counter_ns()
+    sort(data)
+    end = time.perf_counter_ns()
+    file_object.write("{} {}\n".format(size, end - start))
+
+file_object.close()
+```
+
+Script saves result to the \`bst-delete-measurement.png\` file
+
+``` shell
+gnuplot 'counting-diff.p'
+open 'complexity/counting-diff.png'
+```
+![Counting Sort with big difference between common value and the highest](complexity/counting-diff.png)
