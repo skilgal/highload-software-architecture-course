@@ -7,7 +7,11 @@ title: HSA17 Data Structures and Algorithms
 
 ## BST \[0/3\] :file \`BST.worksheet.sc\`
 
-![BST implementation](bst.py)
+### \[x\] insert
+
+### \[x\] find
+
+### \[x\] delete
 
 ## Counting Sort
 
@@ -20,15 +24,18 @@ title: HSA17 Data Structures and Algorithms
 1.  Gen data file for random data insertion
 
     ``` python
-    from bst import *
+    from impl.bst import *
     from random import randint
     import time
-    import sys
+    import os
 
     print("Insert measurement")
 
     dataSetSize = 5000
-    file_object = open("insert-measures.dat", "w")
+
+    filename = os.path.join(os.path.dirname(__file__), "./data/insert-measures.dat")
+    file_object = open(filename, "w")
+
     file_object.write("# array_size time\n")
     for size in range(1, dataSetSize):
         bst = BST(0)
@@ -49,24 +56,28 @@ title: HSA17 Data Structures and Algorithms
     Script saves result to the \`bst-insert-measurement.png\` file
 
     ``` shell
-    gnuplot bst-insert.p
-    open bst-insert-measurement.png
+    gnuplot 'bst-insert.p'
+    open 'complexity/bst-insert-measurement.png'
     ```
 
-    ![Insert BST](bst-insert-measurement.png)
+    [Insert BST](complexity/bst-insert-measurement.png)
 
 ### Search
 
 1.  Gen data file
 
     ``` python
-    from bst import *
+    from impl.bst import *
     from random import randint
     import time
+    import os
 
     print("Search measurement")
     dataSetSize = 5000
-    file_object = open('search-measures.dat', 'w')
+
+    filename = os.path.join(os.path.dirname(__file__), "./data/search-measures.dat")
+    file_object = open(filename, "w")
+
     file_data = []
     file_data.append("# array_size time\n")
     for size in range(1, dataSetSize):
@@ -88,24 +99,28 @@ title: HSA17 Data Structures and Algorithms
     Script saves result to the \`bst-search-measurement.png\` file
 
     ``` shell
-    gnuplot bst-search.p
-    open bst-search-measurement.png
+    gnuplot 'bst-search.p'
+    open 'complexity/bst-search-measurement.png'
     ```
 
-    ![Search BST](bst-search-measurement.png)
+    [Search BST](complexity/bst-search-measurement.png)
 
 ### Delete
 
 1.  Gen data file
 
     ``` python
-    from bst import *
+    from impl.bst import *
     from random import randint
     import time
+    import os
 
     print("Delete measurement")
     dataSetSize = 1000
-    file_object = open("delete-measures.dat", "w")
+
+    filename = os.path.join(os.path.dirname(__file__), "./data/delete-measures.dat")
+    file_object = open(filename, "w")
+
     file_object.write("# array_size time\n")
     for size in range(1, dataSetSize):
         bst = BST(0)
@@ -125,8 +140,127 @@ title: HSA17 Data Structures and Algorithms
     Script saves result to the \`bst-delete-measurement.png\` file
 
     ``` shell
-    gnuplot bst-delete.p
-    open bst-delete-measurement.png
+    gnuplot 'bst-delete.p'
+    open 'complexity/bst-delete-measurement.png'
     ```
 
-    ![BST](bst-delete-measurement.png)
+    [Delete BST](complexity/bst-delete-measurement.png)
+
+## Counting Sort measures
+
+### Sort sorted data set
+
+``` python
+from impl.counting import *
+from random import randint
+import time
+import os
+
+print("Counting Sort measurement")
+
+dataSetSize = 1000
+
+filename = os.path.join(os.path.dirname(__file__), "./data/counting-sorted.dat")
+file_object = open(filename, "w")
+file_object.write("# array_size time\n")
+for size in range(1, dataSetSize):
+    data = []
+
+    for i in range(0, size):
+        data.append(randint(1, dataSetSize))
+
+    data.sort()
+    start = time.perf_counter_ns()
+    sort(data)
+    end = time.perf_counter_ns()
+    file_object.write("{} {}\n".format(size, end - start))
+
+file_object.close()
+```
+
+Script saves result to the \`bst-delete-measurement.png\` file
+
+``` shell
+gnuplot 'counting-sorted.p'
+open 'complexity/counting-sorted.png'
+```
+
+[Counting Sorted](complexity/counting-sorted.png)
+
+### Sort reverse sorted data set
+
+``` python
+from impl.counting import *
+from random import randint
+import time
+import os
+
+print("Counting Sort measurement")
+
+dataSetSize = 1000
+
+filename = os.path.join(os.path.dirname(__file__), "./data/counting-reverse-sorted.dat")
+file_object = open(filename, "w")
+file_object.write("# array_size time\n")
+for size in range(1, dataSetSize):
+    data = []
+
+    for i in range(0, size):
+        data.append(randint(1, dataSetSize))
+
+    data.sort()
+    data.reverse()
+    start = time.perf_counter_ns()
+    sort(data)
+    end = time.perf_counter_ns()
+    file_object.write("{} {}\n".format(size, end - start))
+
+file_object.close()
+```
+
+Script saves result to the \`bst-delete-measurement.png\` file
+
+``` shell
+gnuplot 'counting-reverse-sorted.p'
+open 'complexity/counting-reverse-sorted.png'
+```
+
+[Counting Reversed Sorted](complexity/counting-reverse-sorted.png)
+
+### Sort random data set
+
+``` python
+from impl.counting import *
+from random import randint
+import time
+import os
+
+print("Counting Sort measurement")
+
+dataSetSize = 1000
+
+filename = os.path.join(os.path.dirname(__file__), "./data/counting-random.dat")
+file_object = open(filename, "w")
+file_object.write("# array_size time\n")
+for size in range(1, dataSetSize):
+    data = []
+
+    for i in range(0, size):
+        data.append(randint(1, dataSetSize))
+
+    start = time.perf_counter_ns()
+    sort(data)
+    end = time.perf_counter_ns()
+    file_object.write("{} {}\n".format(size, end - start))
+
+file_object.close()
+```
+
+Script saves result to the \`bst-delete-measurement.png\` file
+
+``` shell
+gnuplot 'counting-random.p'
+open 'complexity/counting-random.png'
+```
+
+[Counting Random](complexity/counting-random.png)
