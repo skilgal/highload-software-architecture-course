@@ -25,7 +25,6 @@ make load on the back-end side
 -   Players information
 -   Last clubs\' news and information
 -   Match history results
--   
 
 ## Shop Page
 
