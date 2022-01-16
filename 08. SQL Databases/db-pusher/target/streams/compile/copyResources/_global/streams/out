@@ -1,5 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/conf/logback.xml,/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/conf/application.conf,/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/conf/routes,/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/target/scala-2.12/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/conf/evolutions/default/1.sql,/Users/dmytro/Git/highload-software-architecture/8. SQL Databases/db-pusher/target/scala-2.12/classes/evolutions/default/1.sql)[0m
