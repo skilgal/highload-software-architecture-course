@@ -64,11 +64,9 @@ could have wider audience so all servers will bu under the load
 
 # Describe possible solution for each type
 
-1.  We must be prepared for the peaks when we can
-
-Add auxiliary resources during predicted load peaks. We could be sure
-that popular match will lead to the new load
-
-1.  We must gather resources in specific area if match is local
-2.  We must cache data via CDN to have faster access to the same data in
+1.  We must be prepared for the peaks when we can. Add auxiliary
+    resources during predicted load peaks. We could be sure that popular
+    match will lead to the new load
+2.  We must gather resources in specific area if match is local
+3.  We must cache data via CDN to have faster access to the same data in
     the region
