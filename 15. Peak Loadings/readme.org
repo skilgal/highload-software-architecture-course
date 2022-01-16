@@ -22,4 +22,5 @@ All of described below are static pages with content, which shouldn't make load 
 It's possible place of the load but we can't expect peak load here according to the site specialization mostly provide information about sport translations and sport news
 
 ** Live scores
-**
+Page contains live results of current matches. It's possible due to the permanent polling process, which triggers back-end each period of time (currently seen - 30 seconds)
+![[file:resources/live-polling.png][Live polling Chrome screen]]
