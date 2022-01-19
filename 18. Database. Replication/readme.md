@@ -1,26 +1,26 @@
 # Task
 
 1.  Set up MySQL Cluster
-    1.  Create 3 docker containers: \`mysql-master\`,
+    -   Create 3 docker containers: \`mysql-master\`,
         \`mysql-slave-biba\`, \`mysql-slave-boba\`
-    2.  Setup master slave replication (Master: mysql-m, Slave:
+    -   Setup master slave replication (Master: mysql-m, Slave:
         mysql-s1, mysql-s2)
 2.  Write script that will frequently write data to database
 3.  Ensure, that replication is working
 4.  Try to turn off mysql-s1,
 5.  Try to remove a column in database on slave node
-    1.  Remove random column
-    2.  Remove the last one column
+    -   Remove random column
+    -   Remove the last one column
 
 # Steps
 
-``` {.shell session="db"}
+``` {.shell session="*db*"}
+SELECT_CMD="select count(*) from tasks;"
+
 function d_mysql() {
     COMMAND='export MYSQL_PWD=111; mysql -u root -D mydb -e "'$2'"'
     docker exec $1 sh -c $COMMAND;
 }
-
-export SELECT_CMD="select count(*) from tasks;"
 
 ```
 
@@ -36,16 +36,15 @@ project from
 
 ## Write script that will frequently write data to database
 
-Create \`Tasks\` database table
+1.  Create \`Tasks\` database table
 
-``` {.bash session="db"}
-docker exec mysql_master sh -c 'export MYSQL_PWD=111; mysql -u root -D mydb -e "CREATE TABLE IF NOT EXISTS tasks (task_id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT)  ENGINE=INNODB;" '
-
+``` {.shell session="*db*"}
+d_mysql mysql_master "CREATE TABLE IF NOT EXISTS tasks (task_id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT)  ENGINE=INNODB;"
 ```
 
-Run permanent insertion
+1.  Run permanent insertion
 
-``` {.bash session="db"}
+``` {.shell session="*db*"}
 while :
 do
     d_mysql mysql_master "insert into tasks (title, description) values ('title', 'description');"
@@ -56,18 +55,18 @@ done
 
 ## Ensure, that replication is working
 
-``` {.shell session="db"}
+``` {.shell session="*db*"}
 # check count on the master docker
 d_mysql mysql_master $SELECT_CMD
-sleep 5
+# sleep 5
 
 # check count on the slave biba docker
 d_mysql mysql_slave_biba $SELECT_CMD
-sleep 5
+# sleep 5
 
 # check count on the slave boba docker
 d_mysql mysql_slave_boba $SELECT_CMD
-sleep 5
+# sleep 5
 
 ```
 
@@ -110,7 +109,7 @@ mysql_slave_biba exited with code 0
 mysql_master        | 2022-01-19T20:36:13.040274Z 5 [Note] Aborted connection 5 to db: 'unconnected' user: 'mydb_slave_user' host: '10.10.193.4' (failed on flush_net())
 ```
 
-``` {.shell session="db"}
+``` shell
 # check count on the master docker
 d_mysql mysql_master $SELECT_CMD
 sleep 5
@@ -138,27 +137,29 @@ count(*)
 
 ### Remove random column
 
-``` shell
+``` {.shell session="*db*"}
 d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN title;"
 
 ```
 
 Run permanent insertion without \`title\` field
 
-\`\`\`
+``` {.shell session="*db*"}
+while :
+do
+    d_mysql mysql_master "insert into tasks (description) values (\"description_v2\");"
+    sleep 2
+done
 
-while : do d~mysql~ mysql~master~ \"insert into tasks (description)
-values (\\\"description~v2~\\\");\" sleep 2 done \`\`\`
+```
 
 ### Remove the last one column [NO~ISSUES~]{.underline}
 
 1.  Find the last column
 
-``` {.shell session="db"}
+``` {.shell session="*db*"}
 d_mysql mysql_master "DESC tasks;"
 ```
-
-╰─\$ d~mysql~ mysql~master~ \"desc tasks;\"
 
   ------------- -------------- ------ ----- --------- -----------------
   Field         Type           Null   Key   Default   Extra
@@ -169,15 +170,19 @@ d_mysql mysql_master "DESC tasks;"
 
 1.  Remove last column \`description\`
 
-    ``` shell
+    ``` {.shell session="*db*"}
     d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN description;"
+    ```
+
+    ```{=org}
+    #+RESULTS:
     ```
 
 2.  Run permanent insertion without \`description\` field
 
 Run permanent insertion without \`description\` field
 
-``` {.bash session="db"}
+``` {.shell session="*db*"}
 while :
 do
     d_mysql mysql_master "insert into tasks (title) values (\"title_v2\");"

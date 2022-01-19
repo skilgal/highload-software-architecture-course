@@ -7,7 +7,7 @@ rm -rf ./slave-biba/data/*
 docker-compose build
 docker-compose up -d
 
-untildocker exec mysql_master sh -c 'export MYSQL_PWD=111; mysql -u root -e ";"'
+until docker exec mysql_master sh -c 'export MYSQL_PWD=111; mysql -u root -e ";"'
 do
     echo "Waiting for mysql_master database connection..."
     sleep 4

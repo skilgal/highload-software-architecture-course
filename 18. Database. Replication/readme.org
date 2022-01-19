@@ -2,26 +2,26 @@
 
 * Task
 1. Set up MySQL Cluster
-   1. Create 3 docker containers: `mysql-master`, `mysql-slave-biba`, `mysql-slave-boba`
-   2. Setup master slave replication (Master: mysql-m, Slave: mysql-s1, mysql-s2)
+   + Create 3 docker containers: `mysql-master`, `mysql-slave-biba`, `mysql-slave-boba`
+   + Setup master slave replication (Master: mysql-m, Slave: mysql-s1, mysql-s2)
 
 2. Write script that will frequently write data to database
 3. Ensure, that replication is working
 4. Try to turn off mysql-s1,
 5. Try to remove a column in  database on slave node
-   1. Remove random column
-   2. Remove the last one column
+   + Remove random column
+   + Remove the last one column
 
 * Steps
 
-#+begin_src shell
+#+begin_src shell :session *db*
+
+SELECT_CMD="select count(*) from tasks;"
 
 function d_mysql() {
     COMMAND='export MYSQL_PWD=111; mysql -u root -D mydb -e "'$2'"'
     docker exec $1 sh -c $COMMAND;
 }
-
-SELECT_CMD="select count(*) from tasks;"
 
 #+end_src
 
@@ -36,15 +36,17 @@ Pass all steps from docker [[file:master-slave.md][readme]], I took base project
 
 ** Write script that will frequently write data to database
 
-Create `Tasks` database table
+1. Create `Tasks` database table
 
-#+begin_src shell
+#+begin_src shell :session *db*
 d_mysql mysql_master "CREATE TABLE IF NOT EXISTS tasks (task_id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description TEXT)  ENGINE=INNODB;"
 #+end_src
 
-Run permanent insertion
+#+RESULTS:
 
-#+begin_src shell
+2. Run permanent insertion
+
+#+begin_src shell :session *db*
 
 while :
 do
@@ -58,21 +60,23 @@ done
 
 ** Ensure, that replication is working
 
-#+begin_src shell
+#+begin_src shell :session *db*
 
 # check count on the master docker
 d_mysql mysql_master $SELECT_CMD
-sleep 5
+# sleep 5
 
 # check count on the slave biba docker
 d_mysql mysql_slave_biba $SELECT_CMD
-sleep 5
+# sleep 5
 
 # check count on the slave boba docker
 d_mysql mysql_slave_boba $SELECT_CMD
-sleep 5
+# sleep 5
 
 #+end_src
+
+#+RESULTS:
 
 With results
 
@@ -147,7 +151,7 @@ count(*)
 ** Try to remove a column in  database on slave node
 *** Remove random column
 
-#+begin_src shell
+#+begin_src shell :session *db*
 
 d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN title;"
 
@@ -155,23 +159,25 @@ d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN title;"
 
 Run permanent insertion without `title` field
 
-```
+#+begin_src shell :session *db*
 
 while :
 do
     d_mysql mysql_master "insert into tasks (description) values (\"description_v2\");"
     sleep 2
 done
-```
+
+#+end_src
 
 *** Remove the last one column _NO_ISSUES_
 
 1. Find the last column
 
-#+begin_src shell
+#+begin_src shell :session *db*
 d_mysql mysql_master "DESC tasks;"
 #+end_src
 
+#+RESULTS:
 ╰─$ d_mysql mysql_master "desc tasks;"
 
 | Field       | Type         | Null | Key | Default | Extra          |
@@ -181,7 +187,7 @@ d_mysql mysql_master "DESC tasks;"
 
 1. Remove last column `description`
 
-   #+begin_src shell
+   #+begin_src shell :session *db*
 d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN description;"
    #+end_src
 
@@ -191,7 +197,7 @@ d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN description;"
 
 Run permanent insertion without `description` field
 
-#+begin_src shell
+#+begin_src shell :session *db*
 
 while :
 do
