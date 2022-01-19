@@ -7,14 +7,11 @@ title: Progress of the course
 
 2.  [x] [Resource monitoring systems](02. System monitoring/README.md)
 
-3.  [x] [Monitoring systems for user
-    metrics](02. System monitoring/README.md)
+3.  [x] [Monitoring systems for user metrics](02. System monitoring/README.md)
 
-4.  [x] [Stress Testing. Approaches and
-    tools](04 Stress Testing/readme.org)
+4.  [x] [Stress Testing. Approaches and tools](04 Stress Testing/readme.org)
 
-5.  [ ] [Mathematical methods of
-    analysis](https://www.notion.so/prjctr/5-Mathematical-methods-of-analysis-2c6cc4cbc5784248ae91c07068b3778e)
+5.  [ ] [Mathematical methods of analysis](https://www.notion.so/prjctr/5-Mathematical-methods-of-analysis-2c6cc4cbc5784248ae91c07068b3778e)
 
 6.  [x] High Load Applications Architecture
 
@@ -25,14 +22,11 @@ title: Progress of the course
     1.  [x] [Transactions, Isolations,
         Locks](08.1 Transactions, Isolations, Locks/README.md)
 
-9.  [ ] [NoSQL
-    Databases](https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a)
+9.  [ ] [NoSQL Databases](https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a)
 
-10. [ ]
-    [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
+10. [ ] [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
 
-11. [ ] [Content Delivery
-    Network](https://www.notion.so/prjctr/11-Content-Delivery-Network-f168db76a350429095a8284c16a0d662)
+11. [ ] [Content Delivery Network](https://www.notion.so/prjctr/11-Content-Delivery-Network-f168db76a350429095a8284c16a0d662)
 
 12. [ ]
     [Balancing](https://www.notion.so/prjctr/12-Balancing-85966bf0b85e4d0e8bfa602e2bf221de)
@@ -51,7 +45,9 @@ title: Progress of the course
 17. [x] [Data structures and
     Algorithms](https://www.notion.so/prjctr/17-Data-structures-and-Algorithms-9a73e687e71c47798cca9ae3d74b9540)
 
-18. [ ] [Database: Replication](18. Database. Replication/readme.org)
+18. [ ] [Database: Replication](18.%20Database.%20Replication/readme.org)
+18. [ ] [Database: Replication](18.\ Database.\ Replication/readme.org)
+18. [ ] [Database: Replication]("18. Database. Replication"/readme.org)
 
 19. [ ] [Database:
     Sharding](https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046)
