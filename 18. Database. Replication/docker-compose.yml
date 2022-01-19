@@ -1,0 +1,51 @@
+version: '3'
+services:
+  mysql_master:
+    image: mysql:5.7
+    env_file:
+      - ./master/mysql_master.env
+    container_name: "mysql_master"
+    restart: "no"
+    ports:
+      - 4406:3306
+    volumes:
+      - ./master/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./master/data:/var/lib/mysql
+    networks:
+      - overlay
+
+  mysql_slave_biba:
+    image: mysql:5.7
+    env_file:
+      - ./slave/mysql_slave.env
+    container_name: "mysql_slave_biba"
+    restart: "no"
+    ports:
+      - 5506:3306
+    depends_on:
+      - mysql_master
+    volumes:
+      - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./slave/data/biba:/var/lib/mysql
+    networks:
+      - overlay
+
+  mysql_slave_boba:
+    image: mysql:5.7
+    env_file:
+      - ./slave/mysql_slave.env
+    container_name: "mysql_slave_boba"
+    restart: "no"
+    ports:
+      - 6506:3306
+    depends_on:
+      - mysql_master
+    volumes:
+      - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./slave/data/boba:/var/lib/mysql
+    networks:
+      - overlay
+
+
+networks:
+  overlay:

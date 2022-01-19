@@ -1,0 +1,51 @@
+version: "3.8"
+
+networks:
+  default:
+    ipam:
+      driver: ${NETWORKS_DRIVER}
+      config:
+        - subnet: 172.16.238.0/24
+          gateway: 172.16.238.1
+volumes:
+  influxdb:
+    driver: ${VOLUMES_DRIVER}
+services:
+  attacker:
+    build: ./docker/kalifull
+    container_name: attacker
+    networks:
+      default:
+        ipv4_address: 172.16.238.10
+  #Defender without DDoS protection
+  vulnerable:
+    build: ./docker/nginx
+    container_name: vulnerable
+    restart: always
+    volumes:
+      - ./docker/nginx/nginx.default.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites-available/default.conf:/etc/nginx/sites-available/default.conf
+      - ./docker/nginx/website:/var/www/html
+      - ./volume/logs/vulnerable:/var/log/nginx
+    ports:
+      - "${VULNERABLE_HTTP_PORT}:80"
+    networks:
+      default:
+        ipv4_address: 172.16.238.20
+  #Defender with DDoS protection
+  defended:
+    build: ./docker/nginx
+    container_name: defended
+    restart: always
+    environment:
+      - TWEAK_IPTABLES=true
+    volumes:
+      - ./docker/nginx/nginx.protected.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites-available/protected.conf:/etc/nginx/sites-available/default.conf
+      - ./docker/nginx/website:/var/www/html
+      - ./volume/logs/defended:/var/log/nginx
+    ports:
+      - "${DEFENSE_HTTP_PORT}:80"
+    networks:
+      default:
+        ipv4_address: 172.16.238.30

@@ -1,0 +1,16 @@
+#+TITLE: DDoS attack
+
+*
+* Tests
+:PROPERTIES:
+:header-args:clojure:    :session *clojure-1*
+:header-args:R:          :session *shell-session*
+:END:
+
+** HPing
+#+begin_src shell :session *shell-session*
+
+alias hping3='docker run -it --rm -w /data -v $(pwd):/data booyaabes/kali-linux-full hping3'
+
+
+#+end_src
