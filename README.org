@@ -18,8 +18,8 @@
 15. [X] [[file:15. Peak Loadings/readme.org][Peak Loading]]
 16. [X] [[https://www.notion.so/prjctr/16-Storages-Physics-HDD-SSD-RAM-a241d10c9cdf4c4abd8b4790dc3b760f][Storages Physics: HDD, SSD, RAM]]
 17. [X] [[https://www.notion.so/prjctr/17-Data-structures-and-Algorithms-9a73e687e71c47798cca9ae3d74b9540][Data structures and Algorithms]]
-18. [ ] [[https://www.notion.so/prjctr/18-Database-Replication-d86d55d2d51a49ea8efbc7292f6ba209][Database: Replication]] :NEXT_TO_DO:
-19. [ ] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]]
+18. [ ] [[file:18. Database. Replication/readme.org][Database: Replication]]
+19. [ ] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]] :NEXT_TO_DO:
 20. [ ]
 21. [ ]
 22. [ ]
