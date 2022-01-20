@@ -2,8 +2,8 @@
 
 docker-compose down
 rm -rf ./master/data/*
-rm -rf ./slave-boba/data/*
-rm -rf ./slave-biba/data/*
+rm -rf ./slave/biba/data/*
+rm -rf ./slave/boba/data/*
 docker-compose build
 docker-compose up -d
 

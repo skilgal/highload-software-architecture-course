@@ -14,7 +14,7 @@
 
 * Steps
 
-#+begin_src shell :session *db*
+#+begin_src shell
 
 SELECT_CMD="select count(*) from tasks;"
 
@@ -149,7 +149,7 @@ count(*)
 #+end_src
 
 ** Try to remove a column in  database on slave node
-*** Remove random column
+*** Remove random column on Master node
 
 #+begin_src shell :session *db*
 
@@ -169,33 +169,52 @@ done
 
 #+end_src
 
-*** Remove the last one column _NO_ISSUES_
+*** Remove randem column on Slave node
+Master node doesn't take the changes and contain DB table without change but both slaves changed the table
+Adding the same column operation was accepted only on the slave.
 
-1. Find the last column
+#+begin_src shell :session *db*
+
+d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN title;"
+
+#+end_src
+
+Run permanent insertion without `title` field
+
+#+begin_src shell :session *db*
+
+while :
+do
+    d_mysql mysql_master "insert into tasks (description) values (\"description_v2\");"
+    sleep 2
+done
+
+#+end_src
+
+
+*** Remove the pre-last column on Slave (SYNC IS STOPED)
+
+1. Find the pre-last column
 
 #+begin_src shell :session *db*
 d_mysql mysql_master "DESC tasks;"
 #+end_src
 
 #+RESULTS:
-╰─$ d_mysql mysql_master "desc tasks;"
-
 | Field       | Type         | Null | Key | Default | Extra          |
 | task_id     | int(11)      | NO   | PRI | NULL    | auto_increment |
 | title       | varchar(255) | NO   |     | NULL    |                |
 | description | text         | YES  |     | NULL    |                |
 
-1. Remove last column `description`
+1. Remove pre-last column `title`
 
-   #+begin_src shell :session *db*
-d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN description;"
+   #+begin_src shell
+d_mysql mysql_master "ALTER TABLE tasks DROP COLUMN title;"
    #+end_src
 
    #+RESULTS:
 
 2. Run permanent insertion without `description` field
-
-Run permanent insertion without `description` field
 
 #+begin_src shell :session *db*
 
