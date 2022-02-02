@@ -1,0 +1,139 @@
+#+TITLE: 9.1 Redis
+
+* Overview
+Build master-slave redis cluster. Try all eviction strategies.
+Write a wrapper for Redis Client that implement probabilistic cache clearing
+* Getting Started
+
+**  Preparation
+Run the docker containers.
+#+begin_src shell
+  docker-compose up -d
+#+end_src
+
+* Test
+** 1. Make 3 requests to show the work of probabilistic cache
+1. User controller requests data from Redis, but as it's first call Redis database is empty, so the data is generated and saved to Redis.
+
+    #+begin_src shell
+    curl -s -i http://localhost:8080/user
+    HTTP/1.1 201 Created
+
+    {
+        "data": {
+            "uuid": "4afa80ff-065a-3497-b81f-77b1b5d9b9b0",
+            "username": "name",
+            "email": "some@email.com",
+            "first_name": "fName",
+            "last_name": "lName"
+        },
+        "redis_cache_info": "Redis used memory: 1.85M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"0\"}}\r\n"
+    }
+    #+end_src
+
+2. User controller requests data from Redis. Data isn't expired (avg_ttl=9183).
+    #+begin_src shell
+    curl -s -i http://localhost:8080/user
+    HTTP/1.1 201 Created
+    {
+        "data": {
+            "uuid": "4afa80ff-065a-3497-b81f-77b1b5d9b9b0",
+            "username": "berta.schaefer",
+            "email": "Kiehn.Elouise@hotmail.com",
+            "first_name": "Lela",
+            "last_name": "Turcotte"
+        },
+        "redis_cache_info": "Redis used memory: 1.85M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"9183\"}}\r\n"
+    }
+    #+end_src
+
+3. User controller requests data from Redis, but the data was expired. New data is generated.
+    #+begin_src shell
+
+    curl -s -i http://localhost:8080/user
+    HTTP/1.1 201 Created
+
+    {
+        "data": {
+            "uuid": "78cde189-ce98-3131-9591-0f6ae0ce1301",
+            "username": "moore.sydnie",
+            "email": "Tom69@hotmail.com",
+            "first_name": "Peyton",
+            "last_name": "Greenfelder"
+        },
+        "redis_cache_info": "Redis used memory: 1.85M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"0\"}}\r\n"
+    }
+    #+end_src
+
+** 2. Check that data is shared between master and slave Redis clusters. Let make a simple request.
+#+begin_src shell
+curl -s -i http://localhost:8080/user
+#+end_src
+
+1. Redis Master.
+#+begin_src shell
+
+docker exec -it redis-master redis-cli get test_user
+"[{\"uuid\":\"647986da-93e5-37e7-92fe-e313c44ab161\",\"username\":\"maggio.woodrow\",\"email\":\"Bashirian.Vella@Lesch.com\",\"first_name\":\"Destany\",\"last_name\":\"Stamm\"},0,1638798418]"
+
+#+end_src
+
+2. Redis Slave
+    #+begin_src shell
+
+docker exec -it redis-slave redis-cli get test_user
+"[{\"uuid\":\"647986da-93e5-37e7-92fe-e313c44ab161\",\"username\":\"maggio.woodrow\",\"email\":\"Bashirian.Vella@Lesch.com\",\"first_name\":\"Destany\",\"last_name\":\"Stamm\"},0,1638798418]"
+
+    #+end_src
+
+3. Eviction strategies comparison.
+Let's check Redis eviction strategies performance with [memtier_benchmark](https://github.com/RedisLabs/memtier_benchmark)
+- Maxmemory: 100mb
+- Threads: 4 (default)
+- Requests per client: 100000
+
+Amount of clients (concurrency) per thread will be changed on each test scenario.
+
+ 1. 10
+
+    | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
+    | volatile-lru      |         |          |            |              |
+    | allkeys-lru       |         |          |            |              |
+    | volatile-lfu      |         |          |            |              |
+    | allkeys-lfu       |         |          |            |              |
+    | volatile-random   |         |          |            |              |
+    | allkeys-random    |         |          |            |              |
+    | volatile-ttl      |         |          |            |              |
+    | noeviction        |         |          |            |              |
+ 2. 25
+        | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
+        | volatile-lru      |         |          |            |              |
+        | allkeys-lru       |         |          |            |              |
+        | volatile-lfu      |         |          |            |              |
+        | allkeys-lfu       |         |          |            |              |
+        | volatile-random   |         |          |            |              |
+        | allkeys-random    |         |          |            |              |
+        | volatile-ttl      |         |          |            |              |
+        | noeviction        |         |          |            |              |
+
+ 3. 50
+        | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
+        | volatile-lru      |         |          |            |              |
+        | allkeys-lru       |         |          |            |              |
+        | volatile-lfu      |         |          |            |              |
+        | allkeys-lfu       |         |          |            |              |
+        | volatile-random   |         |          |            |              |
+        | allkeys-random    |         |          |            |              |
+        | volatile-ttl      |         |          |            |              |
+        | noeviction        |         |          |            |              |
+
+ 4. 100
+        | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
+        | volatile-lru      |         |          |            |              |
+        | allkeys-lru       |         |          |            |              |
+        | volatile-lfu      |         |          |            |              |
+        | allkeys-lfu       |         |          |            |              |
+        | volatile-random   |         |          |            |              |
+        | allkeys-random    |         |          |            |              |
+        | volatile-ttl      |         |          |            |              |
+        | noeviction        |         |          |            |              |

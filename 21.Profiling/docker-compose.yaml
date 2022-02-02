@@ -1,0 +1,10 @@
+version: '3.0'
+
+services:
+  valgrind:
+    build: ./docker/valgrind
+    container_name: 'valgrind'
+    volumes:
+      - './aprof:/root/build:rw'
+    ports:
+      - '22021:22'

@@ -1,0 +1,19 @@
+#+TITLE: Profiling
+
+* Before you start work
+ 1. Run Docker
+    #+begin_src shell
+      docker-compose up -d
+    #+end_src
+
+ 2. Add valgrind to the PATH
+ #+begin_src shell
+  export PATH=$PATH:/root/aprof/valgrind/inst/bin
+ #+end_src
+
+
+* Testing
+
+#+begin_src shell
+
+#+end_src

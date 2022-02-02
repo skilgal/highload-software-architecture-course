@@ -10,6 +10,7 @@
 8. [X] [[file:08.SQLDatabases/][SQL Databases]]
    1. [X] [[file:08.1.Transactions,isolations,locks/][Transactions, Isolations, Locks]]
 9. [ ] [[https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a][NoSQL Databases]]
+   1. [ ] [[file:09.1.Redis/readme.org][Redis]]
 10. [ ] [[https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403][Queues]]
 11. [ ] [[https://www.notion.so/prjctr/11-Content-Delivery-Network-f168db76a350429095a8284c16a0d662][Content Delivery Network]]
 12. [ ] [[https://www.notion.so/prjctr/12-Balancing-85966bf0b85e4d0e8bfa602e2bf221de][Balancing]]
@@ -19,5 +20,8 @@
 16. [X] Storages Physics: HDD, SSD, RAM
 17. [X] [[file:17.DataStructuresAndAlgorithms/][Data structures and Algorithms]]
 18. [X] [[file:18.Database.Replication/][Database: Replication]]
-19. [ ] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]] :NEXT_TO_DO:
-20. [ ]
+19. [X] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]] :NEXT_TO_DO:
+    1. [X] CAP + PACELC and
+20. [ ] [[https://www.notion.so/prjctr/19-1-CAP-PACELC-and-20-Backups-ff592923ddb94460bac41f09fb28499d][Backups]]
+21. [ ] [[https://www.notion.so/prjctr/21-Profiling-59546078a59f4a548eedf652f684f609][Profiling]]
+22. [ ] [[https://www.notion.so/prjctr/22-Continuous-Deployment-4d79c60f59714fbba8e13e151f320c4a][Continuous Deployment]]
