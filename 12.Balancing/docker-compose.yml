@@ -1,0 +1,73 @@
+---
+version: '3.8'
+
+networks:
+  backend:
+    driver: ${NETWORKS_DRIVER}
+services:
+  nginx:
+    build:
+      context: ./docker/nginx
+    container_name: nginx
+    depends_on:
+      - uk-server
+      - us1-server
+      - us2-server
+      - global-server
+      - backup-server
+    volumes:
+      - ./volume/logs/nginx:/var/log/nginx
+    ports:
+      - '8080:80'
+    networks:
+      - backend
+  uk-server:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE=./template/uk.php
+    container_name: uk-server
+    ports:
+      - "9000"
+    networks:
+      - backend
+  us1-server:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE=./template/us1.php
+    container_name: us1-server
+    ports:
+      - "9000"
+    networks:
+      - backend
+  us2-server:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE=./template/us2.php
+    container_name: us2-server
+    ports:
+      - "9000"
+    networks:
+      - backend
+  global-server:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE=./template/global.php
+    container_name: global-server
+    ports:
+      - "9000"
+    networks:
+      - backend
+  backup-server:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE=./template/backup.php
+    container_name: backup-server
+    ports:
+      - "9000"
+    networks:
+      - backend
