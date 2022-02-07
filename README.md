@@ -14,14 +14,14 @@ title: Progress of the course
 8.  [x] [SQL Databases](08.SQLDatabases/)
     1.  [x] [Transactions, Isolations,
         Locks](08.1.Transactions,isolations,locks/)
-9.  [ ] [NoSQL
+9.  [x] [NoSQL
     Databases](https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a)
+    1.  [x] [Redis](09.1.Redis)
 10. [ ]
     [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
 11. [ ] [Content Delivery
     Network](https://www.notion.so/prjctr/11-Content-Delivery-Network-f168db76a350429095a8284c16a0d662)
-12. [ ]
-    [Balancing](https://www.notion.so/prjctr/12-Balancing-85966bf0b85e4d0e8bfa602e2bf221de)
+12. [x] [Balancing](12.Balancing/)
 13. [ ]
     [Logging](https://www.notion.so/prjctr/13-Logging-5af5bc941d5c42d68381ca9dcb8d3f9c)
 14. [ ] [DDoS
@@ -31,7 +31,13 @@ title: Progress of the course
 17. [x] [Data structures and
     Algorithms](17.DataStructuresAndAlgorithms/)
 18. [x] [Database: Replication](18.Database.Replication/)
-19. [ ] [Database:
+19. [x] [Database:
     Sharding](https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046)
     :NEXT~TODO~:
-20. [ ] 
+    1.  [x] CAP + PACELC and
+20. [ ]
+    [Backups](https://www.notion.so/prjctr/19-1-CAP-PACELC-and-20-Backups-ff592923ddb94460bac41f09fb28499d)
+21. [ ]
+    [Profiling](https://www.notion.so/prjctr/21-Profiling-59546078a59f4a548eedf652f684f609)
+22. [ ] [Continuous
+    Deployment](https://www.notion.so/prjctr/22-Continuous-Deployment-4d79c60f59714fbba8e13e151f320c4a)
