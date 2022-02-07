@@ -1,3 +1,4 @@
+---
 version: '3.8'
 
 networks:
@@ -18,17 +19,17 @@ services:
     volumes:
       - ./volume/data/redis-master:/data
     ports:
-      - "${REDIS_MASTER_PORT}:6379"
+      - "6379:6379"
     networks:
       - backend
   redis-slave:
     image: redis:latest
     container_name: redis-slave
-    command: "redis-server --slaveof redis-master ${REDIS_MASTER_PORT}"
+    command: "redis-server --slaveof redis-master 6379"
     volumes:
       - ./volume/data/redis-slave:/data
     ports:
-      - "${REDIS_SLAVE_PORT}:6379"
+      - "6380:6379"
     depends_on:
       - "redis-master"
     networks:
@@ -41,9 +42,9 @@ services:
       - redis-master
       - redis-slave
     environment:
-      - REDIS_HOST=${REDIS_MASTER_HOST}
-      - REDIS_PORT=${REDIS_MASTER_PORT}
-      - APP_ENV=${APP_ENV}
+      - REDIS_HOST=redis-master
+      - REDIS_PORT=6379
+      - APP_ENV=dev
     expose:
       - "9000"
     volumes:
@@ -54,8 +55,8 @@ services:
     build:
       context: ./docker/nginx
       args:
-        - PHP_UPSTREAM_CONTAINER=${NGINX_PHP_UPSTREAM_CONTAINER}
-        - PHP_UPSTREAM_PORT=${NGINX_PHP_UPSTREAM_PORT}
+        - PHP_UPSTREAM_CONTAINER=php-fpm
+        - PHP_UPSTREAM_PORT=9000
     container_name: nginx
     restart: always
     volumes:
@@ -65,7 +66,7 @@ services:
     depends_on:
       - php-fpm
     ports:
-      - "${NGINX_HOST_HTTP_PORT}:80"
+      - "8080:80"
     networks:
       - backend
       - frontend

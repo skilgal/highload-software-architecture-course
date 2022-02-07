@@ -12,8 +12,8 @@ Run the docker containers.
 #+end_src
 
 * Test
-** 1. Make 3 requests to show the work of probabilistic cache
-1. User controller requests data from Redis, but as it's first call Redis database is empty, so the data is generated and saved to Redis.
+** Make 3 requests to show the work of probabilistic cache
+1. First call so avg_ttl = 0
 
     #+begin_src shell
     curl -s -i http://localhost:8080/user
@@ -21,119 +21,160 @@ Run the docker containers.
 
     {
         "data": {
-            "uuid": "4afa80ff-065a-3497-b81f-77b1b5d9b9b0",
-            "username": "name",
-            "email": "some@email.com",
-            "first_name": "fName",
-            "last_name": "lName"
+        "uuid": "934f82dd-b40a-3eeb-9560-7ef7bb1bf280",
+        "username": "charlie.hilpert",
+        "email": "Yost.Myriam@hotmail.com",
+        "first_name": "Wilford",
+        "last_name": "Reinger"
         },
         "redis_cache_info": "Redis used memory: 1.85M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"0\"}}\r\n"
     }
     #+end_src
 
-2. User controller requests data from Redis. Data isn't expired (avg_ttl=9183).
+2. Data from Redis. Data isn't expired (avg_ttl=48045).
     #+begin_src shell
     curl -s -i http://localhost:8080/user
     HTTP/1.1 201 Created
+
     {
         "data": {
-            "uuid": "4afa80ff-065a-3497-b81f-77b1b5d9b9b0",
-            "username": "berta.schaefer",
-            "email": "Kiehn.Elouise@hotmail.com",
-            "first_name": "Lela",
-            "last_name": "Turcotte"
+        "uuid": "0a024493-6036-3e98-9ae2-7c77f4973dc9",
+        "username": "vswift",
+        "email": "Ola.Fadel@yahoo.com",
+        "first_name": "Benjamin",
+        "last_name": "Murphy"
         },
-        "redis_cache_info": "Redis used memory: 1.85M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"9183\"}}\r\n"
+        "redis_cache_info": "Redis used memory: 1.85M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"48045\"}}\r\n"
     }
     #+end_src
 
 3. User controller requests data from Redis, but the data was expired. New data is generated.
     #+begin_src shell
-
     curl -s -i http://localhost:8080/user
     HTTP/1.1 201 Created
 
     {
         "data": {
-            "uuid": "78cde189-ce98-3131-9591-0f6ae0ce1301",
-            "username": "moore.sydnie",
-            "email": "Tom69@hotmail.com",
-            "first_name": "Peyton",
-            "last_name": "Greenfelder"
+        "uuid": "2edbffe0-cae4-3a90-90de-9ba8553ed8f2",
+        "username": "aiyana.tromp",
+        "email": "Miracle15@hotmail.com",
+        "first_name": "Donavon",
+        "last_name": "Jaskolski"
         },
         "redis_cache_info": "Redis used memory: 1.85M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"0\"}}\r\n"
     }
     #+end_src
 
-** 2. Check that data is shared between master and slave Redis clusters. Let make a simple request.
-#+begin_src shell
-curl -s -i http://localhost:8080/user
+** Check that data is shared between master and slave Redis clusters. Let make a simple request.
+#+begin_src shell :results output
+    curl http://localhost:8080/user
 #+end_src
+
+#+RESULTS:
+#+begin_example
+{
+    "data": {
+        "uuid": "d0ec9e4d-f645-3e33-8af5-29c449006f13",
+        "username": "beulah.feil",
+        "email": "Tommie10@gmail.com",
+        "first_name": "Charlotte",
+        "last_name": "Batz"
+    },
+    "redis_cache_info": "Redis used memory: 1.89M\r\nRedis keyspace: {\"db0\":{\"keys\":\"1\",\"expires\":\"1\",\"avg_ttl\":\"53247\"}}\r\n"
+}
+#+end_example
 
 1. Redis Master.
-#+begin_src shell
-
+#+begin_src shell :exports code
 docker exec -it redis-master redis-cli get test_user
-"[{\"uuid\":\"647986da-93e5-37e7-92fe-e313c44ab161\",\"username\":\"maggio.woodrow\",\"email\":\"Bashirian.Vella@Lesch.com\",\"first_name\":\"Destany\",\"last_name\":\"Stamm\"},0,1638798418]"
-
 #+end_src
 
-2. Redis Slave
-    #+begin_src shell
+#+RESULTS:
+#+begin_src shell
+    "[{\"uuid\":\"d0ec9e4d-f645-3e33-8af5-29c449006f13\",\"username\":\"beulah.feil\",\"email\":\"Tommie10@gmail.com\",\"first_name\":\"Charlotte\",\"last_name\":\"Batz\"},0,1644258064]"
+#+end_src
 
-docker exec -it redis-slave redis-cli get test_user
-"[{\"uuid\":\"647986da-93e5-37e7-92fe-e313c44ab161\",\"username\":\"maggio.woodrow\",\"email\":\"Bashirian.Vella@Lesch.com\",\"first_name\":\"Destany\",\"last_name\":\"Stamm\"},0,1638798418]"
+1. Redis Slave
 
+    #+begin_src shell :results output
+    docker exec -i redis-slave redis-cli get test_user
     #+end_src
 
-3. Eviction strategies comparison.
-Let's check Redis eviction strategies performance with [memtier_benchmark](https://github.com/RedisLabs/memtier_benchmark)
+    #+RESULTS:
+    #+begin_src shell
+    "[{\"uuid\":\"d0ec9e4d-f645-3e33-8af5-29c449006f13\",\"username\":\"beulah.feil\",\"email\":\"Tommie10@gmail.com\",\"first_name\":\"Charlotte\",\"last_name\":\"Batz\"},0,1644258064]"
+    #+end_src
+
+
+2. Eviction strategies comparison.
+Let's check Redis eviction strategies performance with [[https://github.com/RedisLabs/memtier_benchmark][memtier_benchmark]]
 - Maxmemory: 100mb
 - Threads: 4 (default)
 - Requests per client: 100000
 
-Amount of clients (concurrency) per thread will be changed on each test scenario.
+  #+begin_src shell
+docker run --network=091redis_backend --rm redislabs/memtier_benchmark:latest \
+    --server redis-master \
+    --threads=4 \
+    --time-test=10 \
+    --clients=10
+  #+end_src
 
- 1. 10
+Amount of clients (concurrency) per thread
 
-    | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
-    | volatile-lru      |         |          |            |              |
-    | allkeys-lru       |         |          |            |              |
-    | volatile-lfu      |         |          |            |              |
-    | allkeys-lfu       |         |          |            |              |
-    | volatile-random   |         |          |            |              |
-    | allkeys-random    |         |          |            |              |
-    | volatile-ttl      |         |          |            |              |
-    | noeviction        |         |          |            |              |
- 2. 25
-        | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
-        | volatile-lru      |         |          |            |              |
-        | allkeys-lru       |         |          |            |              |
-        | volatile-lfu      |         |          |            |              |
-        | allkeys-lfu       |         |          |            |              |
-        | volatile-random   |         |          |            |              |
-        | allkeys-random    |         |          |            |              |
-        | volatile-ttl      |         |          |            |              |
-        | noeviction        |         |          |            |              |
+Eviction strategy
+1. 10
+2. 25
+3. 50
+4. 100
+#+begin_src shell
 
- 3. 50
-        | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
-        | volatile-lru      |         |          |            |              |
-        | allkeys-lru       |         |          |            |              |
-        | volatile-lfu      |         |          |            |              |
-        | allkeys-lfu       |         |          |            |              |
-        | volatile-random   |         |          |            |              |
-        | allkeys-random    |         |          |            |              |
-        | volatile-ttl      |         |          |            |              |
-        | noeviction        |         |          |            |              |
+volatile-lru
+Ops/sec - 342868.36 Hits/sec - 128.06 Misses/sec - 311570.14 Avg. Latency - 1.16 KB/sec - 14547.06
+Ops/sec - 378966.93 Hits/sec - 276.65 Misses/sec - 344238.40 Avg. Latency - 2.63 KB/sec - 16083.12
+Ops/sec - 332423.67 Hits/sec - 242.67 Misses/sec - 301960.37 Avg. Latency - 6.02 KB/sec - 14107.85
+Ops/sec - 311303.76 Hits/sec - 227.25 Misses/sec - 282775.88 Avg. Latency - 12.83 KB/sec - 13211.53
 
- 4. 100
-        | Eviction strategy | Ops/Sec | Hits/sec | Misses/sec | Avg. Latency |
-        | volatile-lru      |         |          |            |              |
-        | allkeys-lru       |         |          |            |              |
-        | volatile-lfu      |         |          |            |              |
-        | allkeys-lfu       |         |          |            |              |
-        | volatile-random   |         |          |            |              |
-        | allkeys-random    |         |          |            |              |
-        | volatile-ttl      |         |          |            |              |
-        | noeviction        |         |          |            |              |
+allkeys-lru
+Ops/sec - 305042.71 Hits/sec - 112.26 Misses/sec - 277199.02 Avg. Latency - 1.20 KB/sec - 12942.15
+Ops/sec - 389684.23 Hits/sec - 284.47 Misses/sec - 353973.57 Avg. Latency - 2.56 KB/sec - 16537.95
+Ops/sec - 352878.14 Hits/sec - 257.60 Misses/sec - 320540.38 Avg. Latency - 5.66 KB/sec - 14975.92
+Ops/sec - 380001.14 Hits/sec - 277.40 Misses/sec - 345177.84 Avg. Latency - 10.51 KB/sec - 16127.01
+
+volatile-lfu
+Ops/sec - 317663.14 Hits/sec - 116.98 Misses/sec - 288667.41 Avg. Latency - 1.27 KB/sec - 13477.61
+Ops/sec - 362152.66 Hits/sec - 264.37 Misses/sec - 328964.99 Avg. Latency - 2.75 KB/sec - 15369.53
+Ops/sec - 412479.99 Hits/sec - 301.11 Misses/sec - 374680.32 Avg. Latency - 4.84 KB/sec - 17505.39
+Ops/sec - 382088.20 Hits/sec - 278.92 Misses/sec - 347073.64 Avg. Latency - 10.46 KB/sec - 16215.58
+
+allkeys-lfu
+Ops/sec - 306335.36 Hits/sec - 113.42 Misses/sec - 278372.99 Avg. Latency - 1.21 KB/sec - 12997.02
+Ops/sec - 372935.10 Hits/sec - 272.24 Misses/sec - 338759.33 Avg. Latency - 2.66 KB/sec - 15827.13
+Ops/sec - 382758.69 Hits/sec - 279.41 Misses/sec - 347682.68 Avg. Latency - 5.27 KB/sec - 16244.04
+Ops/sec - 401847.64 Hits/sec - 293.35 Misses/sec - 365022.32 Avg. Latency - 9.91 KB/sec - 17054.16
+
+volatile-random
+Ops/sec - 311266.75 Hits/sec - 114.39 Misses/sec - 282855.10 Avg. Latency - 1.28 KB/sec - 13206.22
+Ops/sec - 356578.18 Hits/sec - 260.30 Misses/sec - 323901.35 Avg. Latency - 2.79 KB/sec - 15132.95
+Ops/sec - 392895.65 Hits/sec - 286.81 Misses/sec - 356890.69 Avg. Latency - 5.09 KB/sec - 16674.24
+Ops/sec - 390637.22 Hits/sec - 285.17 Misses/sec - 354839.22 Avg. Latency - 10.21 KB/sec - 16578.40
+
+allkeys-random
+Ops/sec - 346176.03 Hits/sec - 252.71 Misses/sec - 314452.46 Avg. Latency - 1.25 KB/sec - 14691.49
+Ops/sec - 369686.03 Hits/sec - 269.87 Misses/sec - 335808.00 Avg. Latency - 2.69 KB/sec - 15689.24
+Ops/sec - 429609.76 Hits/sec - 313.62 Misses/sec - 390240.32 Avg. Latency - 4.62 KB/sec - 18232.37
+Ops/sec - 386027.28 Hits/sec - 281.80 Misses/sec - 350651.74 Avg. Latency - 10.36 KB/sec - 16382.75
+
+volatile-ttl
+Ops/sec - 284302.30 Hits/sec - 207.54 Misses/sec - 258248.84 Avg. Latency - 1.40 KB/sec - 12065.61
+Ops/sec - 338610.42 Hits/sec - 247.19 Misses/sec - 307580.16 Avg. Latency - 2.94 KB/sec - 14370.41
+Ops/sec - 372284.44 Hits/sec - 271.77 Misses/sec - 338168.30 Avg. Latency - 5.34 KB/sec - 15799.52
+Ops/sec - 373302.81 Hits/sec - 272.51 Misses/sec - 339093.34 Avg. Latency - 10.70 KB/sec - 15842.73
+
+noeviction
+Ops/sec - 290587.27 Hits/sec - 212.13 Misses/sec - 263957.85 Avg. Latency - 1.37 KB/sec - 12332.34
+Ops/sec - 341292.58 Hits/sec - 249.14 Misses/sec - 310016.53 Avg. Latency - 2.92 KB/sec - 14484.24
+Ops/sec - 366471.58 Hits/sec - 267.52 Misses/sec - 332888.13 Avg. Latency - 5.46 KB/sec - 15552.82
+Ops/sec - 382505.00 Hits/sec - 279.23 Misses/sec - 347452.24 Avg. Latency - 10.48 KB/sec - 16233.26
+
+#+end_src
