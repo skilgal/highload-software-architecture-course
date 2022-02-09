@@ -19,8 +19,7 @@ title: Progress of the course
     1.  [x] [Redis](09.1.Redis)
 10. [ ]
     [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
-11. [ ] [Content Delivery
-    Network](https://www.notion.so/prjctr/11-Content-Delivery-Network-f168db76a350429095a8284c16a0d662)
+11. [x] [Content Delivery Network](11.CDN/)
 12. [x] [Balancing](12.Balancing/)
 13. [ ]
     [Logging](https://www.notion.so/prjctr/13-Logging-5af5bc941d5c42d68381ca9dcb8d3f9c)

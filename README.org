@@ -12,7 +12,7 @@
 9. [X] [[https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a][NoSQL Databases]]
    1. [X] [[file:09.1.Redis][Redis]]
 10. [ ] [[https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403][Queues]]
-11. [ ] [[https://www.notion.so/prjctr/11-Content-Delivery-Network-f168db76a350429095a8284c16a0d662][Content Delivery Network]]
+11. [X] [[file:11.CDN/][Content Delivery Network]]
 12. [X] [[file:12.Balancing/][Balancing]]
 13. [ ] [[https://www.notion.so/prjctr/13-Logging-5af5bc941d5c42d68381ca9dcb8d3f9c][Logging]]
 14. [ ] [[https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a][DDoS Attacks]]
