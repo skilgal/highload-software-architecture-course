@@ -40,10 +40,9 @@ title: Progress of the course
     [Profiling](https://www.notion.so/prjctr/21-Profiling-59546078a59f4a548eedf652f684f609)
 22. [ ] [Continuous
     Deployment](https://www.notion.so/prjctr/22-Continuous-Deployment-4d79c60f59714fbba8e13e151f320c4a)
-23. [ ] [AWS. EC2 and Load
+23. [ ] [AWS: EC2 and Load
     Balancer](https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=c6daf27bfad24562ac9876af2da56363)
-24. [ ] [AWS:
-    S3](https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=88813e80c67549a1b0bd52b8a4bd6917)
+24. [x] [AWS: S3](24.AWS.S3/)
 25. [ ] [AWS: Autoscale
     groups](https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=de292b7cc99c4875b126644fd5df97c3)
 26. [ ] [AWS: Serverless
