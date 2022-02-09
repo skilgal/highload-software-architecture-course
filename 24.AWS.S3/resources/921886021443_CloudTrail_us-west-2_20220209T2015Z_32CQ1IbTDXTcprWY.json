@@ -1,0 +1,51 @@
+{
+    "Records": [
+        {
+            "eventVersion": "1.08",
+            "userIdentity": {
+                "type": "IAMUser",
+                "principalId": "AIDA5NJFQK5BQKTA2AGRK",
+                "arn": "arn:aws:iam::921886021443:user/admin",
+                "accountId": "921886021443",
+                "accessKeyId": "ASIA5NJFQK5B57L2SVTC",
+                "userName": "admin",
+                "sessionContext": {
+                    "sessionIssuer": {
+                    },
+                    "webIdFederationData": {
+                    },
+                    "attributes": {
+                        "creationDate": "2022-02-09T19:49:39Z",
+                        "mfaAuthenticated": "false"
+                    }
+                }
+            },
+            "eventTime": "2022-02-09T20:06:46Z",
+            "eventSource": "s3.amazonaws.com",
+            "eventName": "ListMultiRegionAccessPoints",
+            "awsRegion": "us-west-2",
+            "sourceIPAddress": "46.30.162.79",
+            "userAgent": "[AWS Console S3, aws-internal/3 aws-sdk-java/1.11.1030 Linux/5.4.172-100.336.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.302-b08 java/1.8.0_302 vendor/Oracle_Corporation cfg/retry-mode/standard]",
+            "requestParameters": {
+                "Host": "921886021443.s3-control.us-west-2.amazonaws.com"
+            },
+            "responseElements": null,
+            "additionalEventData": {
+                "SignatureVersion": "SigV4",
+                "CipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "bytesTransferredIn": 0,
+                "AuthenticationMethod": "AuthHeader",
+                "x-amz-id-2": "k3Xc0P5/JaEWP0lOXT9J6Um5hPvJU6i8hjbJSmTGE8sBlIteq2RY2mSYP+IEcKZmq+mK9apIx3g=",
+                "bytesTransferredOut": 91
+            },
+            "requestID": "X6X1CYT7HXFKRSXZ",
+            "eventID": "0e343851-d45f-4b23-b387-7c27073ecd62",
+            "readOnly": true,
+            "eventType": "AwsApiCall",
+            "managementEvent": true,
+            "recipientAccountId": "921886021443",
+            "vpcEndpointId": "vpce-a0d039c9",
+            "eventCategory": "Management"
+        }
+    ]
+}

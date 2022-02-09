@@ -1,0 +1,33 @@
+#+TITLE: 24. AWS: S3
+
+* Task
+Create S3 bucket
+1. Bucket must be public
+2. Bucket must have WORM (Write Once Read Many) system
+3. Log all events of files inside bucket
+
+* Checks
+** Created
+1. Bucket `24.highload-system-architecture-s3-hw-skilgal` for all files
+2. Bucket `24.highload-system-architecture-s3-hw-skilgal-access-logs` for log storing
+** Public bucket
+![[file:resources/bucket-public-access.png][public access conf]]
+
+** Configure WORM
+![[file:resources/bucket-worm-enabled.png][WORM]]
+** Configure Access logs to another bucket
+![[file:resources/access-log-conf.png][access log configuration]]
+
+Example of the log file
+![[file:resources/2022-02-09-20-13-20-8610AE8671C89CF1.txt][Access Log.file]]
+
+** Configure trail logs of events :ATTACH:
+:PROPERTIES:
+:ID:       b9b2bb0d-0d62-446f-a358-d0afe30562b1
+:END:
+![[file:resources/trail-event-log.png][trail configuration]]
+
+![[file:resources/trail-log-structure.png][trail logs structure]]
+
+Example of the trail log
+![[file:resources/921886021443_CloudTrail_us-west-2_20220209T2015Z_32CQ1IbTDXTcprWY.json][trail log]]
