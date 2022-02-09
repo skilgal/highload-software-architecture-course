@@ -21,8 +21,7 @@ title: Progress of the course
     [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
 11. [x] [Content Delivery Network](11.CDN/)
 12. [x] [Balancing](12.Balancing/)
-13. [ ]
-    [Logging](https://www.notion.so/prjctr/13-Logging-5af5bc941d5c42d68381ca9dcb8d3f9c)
+13. [x] [Logging](13.Logging/)
 14. [ ] [DDoS
     Attacks](https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a)
 15. [x] [Peak Loading](15.PeakLoadings/)
