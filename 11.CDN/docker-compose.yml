@@ -1,0 +1,148 @@
+---
+version: '3.8'
+
+networks:
+  geodns_network:
+    ipam:
+      driver: ${NETWORKS_DRIVER}
+      config:
+        - subnet: 172.16.238.0/24
+          gateway: 172.16.238.1
+services:
+  geodns:
+    build:
+      context: ./docker/geodns
+    container_name: geodns
+    environment:
+      - WEBMIN_ENABLED=false
+    restart: always
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    volumes:
+      - ./volume/data/geodns:/data
+    networks:
+      geodns_network:
+        ipv4_address: 172.16.238.10
+  testapp:
+    image: nginx:latest
+    volumes:
+      - ./docker/testapp/nginx.conf:/etc/nginx/nginx.conf
+      - ./volume/logs/testapp:/var/log/nginx
+    dns:
+      - 172.16.238.10
+    depends_on:
+      - geodns
+    ports:
+      - "8080:80"
+    networks:
+      - geodns_network
+  balancer-us:
+    build:
+      context: ./docker/nginx
+    container_name: balancer-us
+    restart: always
+    depends_on:
+      - us-server1
+      - us-server2
+      - us-server3
+    volumes:
+      - ./docker/nginx/sites-available/us-vh-template.conf:/etc/nginx/conf.d/default.conf
+      - ./volume/logs/balancer-us:/var/log/nginx
+      - ./volume/cache/balancer-us:/var/cache/nginx
+    ports:
+      - "80"
+    networks:
+      geodns_network:
+        ipv4_address: 172.16.238.100
+  balancer-global:
+    build:
+      context: ./docker/nginx
+    container_name: balancer-global
+    restart: always
+    depends_on:
+      - global-server1
+      - global-server2
+      - global-server3
+    volumes:
+      - ./docker/nginx/sites-available/global-vh-template.conf:/etc/nginx/conf.d/default.conf
+      - ./volume/logs/balancer-global:/var/log/nginx
+      - ./volume/cache/balancer-global:/var/cache/nginx
+    ports:
+      - "80"
+    networks:
+      geodns_network:
+        ipv4_address: 172.16.238.200
+  us-server1:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE_PATH=./template/index_us1.php
+    container_name: us-server1
+    ports:
+      - "9000"
+    networks:
+      - geodns_network
+  us-server2:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE_PATH=./template/index_us2.php
+    container_name: us-server2
+    ports:
+      - "9000"
+    networks:
+      - geodns_network
+  us-server3:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE_PATH=./template/index_us3.php
+    container_name: us-server3
+    ports:
+      - "9000"
+    networks:
+      - geodns_network
+  global-server1:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE_PATH=./template/index_global1.php
+    container_name: global-server1
+    ports:
+      - "9000"
+    networks:
+      - geodns_network
+  global-server2:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE_PATH=./template/index_global2.php
+    container_name: global-server2
+    ports:
+      - "9000"
+    networks:
+      - geodns_network
+  global-server3:
+    build:
+      context: ./docker/server
+      args:
+        - TEMPLATE_PATH=./template/index_global3.php
+    container_name: global-server3
+    ports:
+      - "9000"
+    networks:
+      - geodns_network
+  siege:
+    build:
+      context: ./docker/siege
+    container_name: siege
+    command: siege -c1000 -t10s -b "http://cdn.example.com/image.png" -R /app/siege.conf
+    dns:
+      - 172.16.238.10
+    volumes:
+      - "./resources:/app"
+    networks:
+      - geodns_network
+    depends_on:
+      - testapp
