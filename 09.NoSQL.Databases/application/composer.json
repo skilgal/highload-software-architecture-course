@@ -1,0 +1,22 @@
+{
+    "type": "project",
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "elasticsearch/elasticsearch": "^7.15",
+        "php-di/php-di": "^6.0",
+        "selective/basepath": "^2.1",
+        "slim/psr7": "^1",
+        "slim/slim": "^4.4",
+        "symfony/console": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true
+    }
+}

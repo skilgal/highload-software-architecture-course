@@ -1,0 +1,66 @@
+#+TITLE: 9 NoSQL Database
+
+* Overview
+
+Create ES index that will serve autocomplete needs with leveraging typos and errors (max 3 typos if word length is bigger than 7).
+Please use english vocabulary and look at google as a ref.
+
+* Getting Started
+
+** Preparation
+1. Run the docker containers.
+   #+begin_src shell
+    docker-compose up -d
+   #+end_src
+1. Generate 'vocabulary' index with the next command:
+#+begin_src shell
+    docker exec -it php-fpm php bin/console.php es:reindex
+#+end_src
+
+* Test scenario
+
+Response is filtered by Json Key Path `suggest.word-autocomplete.options._source.word`
+
+** Word: `wo`. Length < 7
+
+#+begin_src json
+
+{"suggest": {"word-autocomplete": [{"options": [
+    {"_source": {"word": "word"}},
+    {"_source": {"word": "word method"}},
+    {"_source": {"word": "word-catcher"}},
+    {"_source": {"word": "wordbook"}},
+    {"_source": {"word": "worder"}}
+]}]}}
+
+#+end_src
+
+** Word: `Absorption`. Length > 7
+*** Mistakes in the word - 1.
+#+begin_src json
+{"suggest": {"word-autocomplete": [{"options": [
+    {"_source": {"word": "absorption"}}
+]}]}}
+#+end_src
+
+*** Mistakes in the word - 2.
+#+begin_src json
+{"suggest": {"word-autocomplete": [{"options": [
+    {"_source": {"word": "absorption"}},
+    {"_source": {"word": "absorptive"}},
+    {"_source": {"word": "absorptiveness"}},
+    {"_source": {"word": "absorptivity"}},
+    {"_source": {"word": "absorbition"}}
+]}]}}
+#+end_src
+*** Mistakes in the word - 3
+
+#+begin_src json
+{"suggest": {"word-autocomplete": [{"options": [
+    {"_source": {"word": "absorption"}},
+    {"_source": {"word": "absorptive"}},
+    {"_source": {"word": "absorptiveness"}},
+    {"_source": {"word": "absorptivity"}},
+    {"_source": {"word": "absorbition"}}
+]}]}}
+#+end_src

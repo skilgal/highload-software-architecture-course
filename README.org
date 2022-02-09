@@ -11,7 +11,7 @@
    1. [X] [[file:08.SQLDatabases/][SQL Databases]]
    2. [X] [[file:08.1.Transactions,isolations,locks/][Transactions, Isolations, Locks]]
 9. [X] 9
-   1. [X] [[https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a][NoSQL Databases]]
+   1. [X] [[file:09.NoSQL.Databases/][NoSQL Databases]]
    2. [X] [[file:09.1.Redis][Redis]]
 10. [ ] [[https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403][Queues]]
 11. [X] [[file:11.CDN/][Content Delivery Network]]

@@ -16,8 +16,7 @@ title: Progress of the course
     2.  [x] [Transactions, Isolations,
         Locks](08.1.Transactions,isolations,locks/)
 9.  [x] 9
-    1.  [x] [NoSQL
-        Databases](https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a)
+    1.  [x] [NoSQL Databases](09.NoSQL.Databases/)
     2.  [x] [Redis](09.1.Redis)
 10. [ ]
     [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
