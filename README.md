@@ -11,12 +11,12 @@ title: Progress of the course
     analysis](https://www.notion.so/prjctr/5-Mathematical-methods-of-analysis-2c6cc4cbc5784248ae91c07068b3778e)
 6.  [x] High Load Applications Architecture
 7.  [x] [Web Servers](07.WebServers/)
-8.  [x] 8
+8.  [x] SQL Databases
     1.  [x] [SQL Databases](08.SQLDatabases/)
     2.  [x] [Transactions, Isolations,
         Locks](08.1.Transactions,isolations,locks/)
-9.  [x] 9
-    1.  [x] [NoSQL Databases](09.NoSQL.Databases/)
+9.  [x] NoSQL Databases
+    1.  [x] [Google suggestion on Elasticsearch](09.NoSQL.Databases/)
     2.  [x] [Redis](09.1.Redis)
 10. [ ]
     [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
@@ -30,8 +30,8 @@ title: Progress of the course
 17. [x] [Data structures and
     Algorithms](17.DataStructuresAndAlgorithms/)
 18. [x] [Database: Replication](18.Database.Replication/)
-19. [x] 19
-    1.  [x] [Database:
+19. [ ] Database Distribution
+    1.  [ ] [Database:
         Sharding](https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046)
     2.  [x] CAP + PACELC
 20. [ ]

@@ -7,11 +7,11 @@
 5. [ ] [[https://www.notion.so/prjctr/5-Mathematical-methods-of-analysis-2c6cc4cbc5784248ae91c07068b3778e][Mathematical methods of analysis]]
 6. [X] High Load Applications Architecture
 7. [X] [[file:07.WebServers/][Web Servers]]
-8. [X] 8
+8. [X] SQL Databases
    1. [X] [[file:08.SQLDatabases/][SQL Databases]]
    2. [X] [[file:08.1.Transactions,isolations,locks/][Transactions, Isolations, Locks]]
-9. [X] 9
-   1. [X] [[file:09.NoSQL.Databases/][NoSQL Databases]]
+9. [X] NoSQL Databases
+   1. [X] [[file:09.NoSQL.Databases/][Google suggestion on Elasticsearch]]
    2. [X] [[file:09.1.Redis][Redis]]
 10. [ ] [[https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403][Queues]]
 11. [X] [[file:11.CDN/][Content Delivery Network]]
@@ -22,8 +22,8 @@
 16. [X] Storages Physics: HDD, SSD, RAM
 17. [X] [[file:17.DataStructuresAndAlgorithms/][Data structures and Algorithms]]
 18. [X] [[file:18.Database.Replication/][Database: Replication]]
-19. [X] 19
-    1. [X] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]]
+19. [-] Database Distribution
+    1. [ ] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]]
     2. [X] CAP + PACELC
 20. [ ] [[https://www.notion.so/prjctr/19-1-CAP-PACELC-and-20-Backups-ff592923ddb94460bac41f09fb28499d][Backups]]
 21. [ ] [[https://www.notion.so/prjctr/21-Profiling-59546078a59f4a548eedf652f684f609][Profiling]]
