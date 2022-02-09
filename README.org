@@ -23,8 +23,8 @@
 17. [X] [[file:17.DataStructuresAndAlgorithms/][Data structures and Algorithms]]
 18. [X] [[file:18.Database.Replication/][Database: Replication]]
 19. [X] 19
-    1. [X] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]] :NEXT_TO_DO:
-    2. [X] CAP + PACELC and
+    1. [X] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046][Database: Sharding]]
+    2. [X] CAP + PACELC
 20. [ ] [[https://www.notion.so/prjctr/19-1-CAP-PACELC-and-20-Backups-ff592923ddb94460bac41f09fb28499d][Backups]]
 21. [ ] [[https://www.notion.so/prjctr/21-Profiling-59546078a59f4a548eedf652f684f609][Profiling]]
 22. [ ] [[https://www.notion.so/prjctr/22-Continuous-Deployment-4d79c60f59714fbba8e13e151f320c4a][Continuous Deployment]]

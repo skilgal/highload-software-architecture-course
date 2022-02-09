@@ -34,8 +34,7 @@ title: Progress of the course
 19. [x] 19
     1.  [x] [Database:
         Sharding](https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=459788d99db44ada920ee3a2614ca046)
-        :NEXT~TODO~:
-    2.  [x] CAP + PACELC and
+    2.  [x] CAP + PACELC
 20. [ ]
     [Backups](https://www.notion.so/prjctr/19-1-CAP-PACELC-and-20-Backups-ff592923ddb94460bac41f09fb28499d)
 21. [ ]
