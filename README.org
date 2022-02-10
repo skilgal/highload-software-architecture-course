@@ -28,7 +28,7 @@
 20. [ ] [[https://www.notion.so/prjctr/19-1-CAP-PACELC-and-20-Backups-ff592923ddb94460bac41f09fb28499d][Backups]]
 21. [ ] [[https://www.notion.so/prjctr/21-Profiling-59546078a59f4a548eedf652f684f609][Profiling]]
 22. [ ] [[https://www.notion.so/prjctr/22-Continuous-Deployment-4d79c60f59714fbba8e13e151f320c4a][Continuous Deployment]]
-23. [ ] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=c6daf27bfad24562ac9876af2da56363][AWS: EC2 and Load Balancer]]
+23. [X] [[file:23.AWS.LB+EC2/][AWS: EC2 and Load Balancer]]
 24. [X] [[file:24.AWS.S3/][AWS: S3]]
 25. [ ] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=de292b7cc99c4875b126644fd5df97c3][AWS: Autoscale groups]]
 26. [ ] [[https://www.notion.so/prjctr/3051f0ce6ee44f90aa9cba8e013c8da4?v=0885446347b644c48a1b5de50c919c89&p=96e22966d9934b55bf186df192cf2213][AWS: Serverless calculations]]
