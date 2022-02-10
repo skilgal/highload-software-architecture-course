@@ -38,8 +38,7 @@ title: Progress of the course
     [Backups](https://www.notion.so/prjctr/19-1-CAP-PACELC-and-20-Backups-ff592923ddb94460bac41f09fb28499d)
 21. [ ]
     [Profiling](https://www.notion.so/prjctr/21-Profiling-59546078a59f4a548eedf652f684f609)
-22. [ ] [Continuous
-    Deployment](https://www.notion.so/prjctr/22-Continuous-Deployment-4d79c60f59714fbba8e13e151f320c4a)
+22. [x] [Continuous Deployment](22.Continues.Integration/)
 23. [x] [AWS: EC2 and Load Balancer](23.AWS.LB+EC2/)
 24. [x] [AWS: S3](24.AWS.S3/)
 25. [ ] [AWS: Autoscale
