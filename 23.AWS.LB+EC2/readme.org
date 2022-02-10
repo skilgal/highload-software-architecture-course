@@ -6,11 +6,11 @@ Start 2 NGINX servers according to the official documentation https://www.nginx.
 * Start Load Balancer
 
 ** Description
-
 ![[file:resources/clb-description.png][CLB Description]]
-
 ** Instances
+![[file:resources/clb-instances.png][CLB Instances]]
 ** Listeners
+![[file:resources/clb-listeners.png][CLB Listeners]]
 ** Configure Nginx instances behind to separate them
 *** Instance 1
 ![[file:resources/nginx-instance-1-conf.png][Nginx1Conf]]

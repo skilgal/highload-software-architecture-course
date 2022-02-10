@@ -16,7 +16,11 @@ Start 2 NGINX servers according to the official documentation
 
 ## Instances
 
+![CLB Instances](resources/clb-instances.png)
+
 ## Listeners
+
+![CLB Listeners](resources/clb-listeners.png)
 
 ## Configure Nginx instances behind to separate them
 
