@@ -13,7 +13,7 @@
 9. [X] NoSQL Databases
    1. [X] [[file:09.NoSQL.Databases/][Google suggestion on Elasticsearch]]
    2. [X] [[file:09.1.Redis][Redis]]
-10. [ ] [[https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403][Queues]]
+10. [X] [[file:10.Queues/][Queues]]
 11. [X] [[file:11.CDN/][Content Delivery Network]]
 12. [X] [[file:12.Balancing/][Balancing]]
 13. [X] [[file:13.Logging/][Logging]]

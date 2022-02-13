@@ -18,8 +18,7 @@ title: Progress of the course
 9.  [x] NoSQL Databases
     1.  [x] [Google suggestion on Elasticsearch](09.NoSQL.Databases/)
     2.  [x] [Redis](09.1.Redis)
-10. [ ]
-    [Queues](https://www.notion.so/prjctr/10-Queues-2b1fc360288145f195c297d6fd511403)
+10. [x] [Queues](10.Queues/)
 11. [x] [Content Delivery Network](11.CDN/)
 12. [x] [Balancing](12.Balancing/)
 13. [x] [Logging](13.Logging/)
