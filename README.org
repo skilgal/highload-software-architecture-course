@@ -17,7 +17,7 @@
 11. [X] [[file:11.CDN/][Content Delivery Network]]
 12. [X] [[file:12.Balancing/][Balancing]]
 13. [X] [[file:13.Logging/][Logging]]
-14. [ ] [[https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a][DDoS Attacks]]
+14. [X] [[file:14.DDoSAttacks/][DDoS Attacks]]
 15. [X] [[file:15.PeakLoadings/][Peak Loading]]
 16. [X] Storages Physics: HDD, SSD, RAM
 17. [X] [[file:17.DataStructuresAndAlgorithms/][Data structures and Algorithms]]
