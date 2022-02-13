@@ -1,0 +1,92 @@
+---
+version: '3.8'
+
+networks:
+  backend:
+    driver: ${NETWORKS_DRIVER}
+volumes:
+  redis-aof:
+    driver: ${VOLUMES_DRIVER}
+  redis-rdb:
+    driver: ${VOLUMES_DRIVER}
+services:
+  redis-aof:
+    build:
+      context: ./docker/redis-aof
+    container_name: redis-aof
+    volumes:
+      - ./volume/data/redis-aof:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+  redis-rdb:
+    build:
+      context: ./docker/redis-rdb
+    container_name: redis-rdb
+    volumes:
+      - ./volume/data/redis-rdb:/data
+    ports:
+      - "6380:6379"
+    networks:
+      - backend
+  beanstalkd:
+    build: ./docker/beanstalkd
+    container_name: beanstalkd
+    ports:
+      - "11300:11300"
+    depends_on:
+      - php-fpm
+    networks:
+      - backend
+  beanstalkd-console:
+    build:
+      context: ./docker/beanstalkd-console
+      args:
+        - BEANSTALKD_PORT_11300_TCP_ADDR=beanstalkd
+    container_name: beanstalkd-console
+    ports:
+      - "2080:2080"
+    depends_on:
+      - beanstalkd
+    networks:
+      - backend
+  php-fpm:
+    build:
+      context: ./docker/php-fpm
+    container_name: php-fpm
+    depends_on:
+      - redis-aof
+      - redis-rdb
+    environment:
+      - REDIS_AOF_HOST=redis-aof
+      - REDIS_AOF_PORT=6379
+      - REDIS_RDB_HOST=redis-rdb
+      - REDIS_RDB_PORT=6380
+      - BEANSTALKD_HOST=beanstalkd
+      - BEANSTALKD_PORT=11300
+      - APP_ENV=dev
+    expose:
+      - "9000"
+    volumes:
+      - ./application:/var/www/html
+    networks:
+      - backend
+  nginx:
+    build:
+      context: ./docker/nginx
+      args:
+        - PHP_UPSTREAM_CONTAINER=php-fpm
+        - PHP_UPSTREAM_PORT=9000
+    container_name: nginx
+    restart: always
+    volumes:
+      - ./application:/var/www/html
+      - ./docker/nginx/sites-available:/etc/nginx/sites-available
+      - ./volume/logs:/var/log
+    depends_on:
+      - php-fpm
+    ports:
+      - "${NGINX_HOST_HTTP_PORT}:80"
+    networks:
+      - backend
