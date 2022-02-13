@@ -22,8 +22,7 @@ title: Progress of the course
 11. [x] [Content Delivery Network](11.CDN/)
 12. [x] [Balancing](12.Balancing/)
 13. [x] [Logging](13.Logging/)
-14. [ ] [DDoS
-    Attacks](https://www.notion.so/prjctr/14-DDoS-Attacks-b6aeaf507abd4255992c3eaea1e34d7a)
+14. [x] [DDoS Attacks](14.DDoSAttacks/)
 15. [x] [Peak Loading](15.PeakLoadings/)
 16. [x] Storages Physics: HDD, SSD, RAM
 17. [x] [Data structures and
