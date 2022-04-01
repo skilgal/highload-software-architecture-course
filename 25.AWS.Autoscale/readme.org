@@ -1,0 +1,9 @@
+#+TITLE: 25. AWS: Autoscale Group
+
+* Task
+1. Create autoscale group that will contain one on-demand instance and will scale on spot instances.
+2. Set up scaling policy based on AVG CPU usage
+3. Set up scaling policy based on requests amount that allows non-linear growth
+
+* AWS:
+** Create autoscale group one on-demand
